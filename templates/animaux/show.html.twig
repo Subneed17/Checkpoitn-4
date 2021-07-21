@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Animaux{% endblock %}
+
+{% block body %}
+    <h1>Animaux</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ animaux.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ animaux.name }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ animaux.age }}</td>
+            </tr>
+            <tr>
+                <th>Race</th>
+                <td>{{ animaux.race }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ animaux.picture }}</td>
+            </tr>
+            <tr>
+                <th>Vaccinate</th>
+                <td>{{ animaux.vaccinate ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Sterilized</th>
+                <td>{{ animaux.sterilized ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Puced</th>
+                <td>{{ animaux.puced ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Castration</th>
+                <td>{{ animaux.castration ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('animaux_index') }}">back to list</a>
+
+    <a href="{{ path('animaux_edit', {'id': animaux.id}) }}">edit</a>
+
+    {{ include('animaux/_delete_form.html.twig') }}
+{% endblock %}

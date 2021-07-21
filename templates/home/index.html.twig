@@ -1,20 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello HomeController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<div class="row">
+		<div class="ok">
+			<div class="div-banniere">
+				<img class="w-100" src="{{ asset('build/images/bannière-spa.png') }}" alt="">
+			</div>
+		</div>
+	</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<div class="d-flex">
+		<div class="col-12 col-lg-6 text-center">
+			<img class="h-50 w-100" src="{{ asset('build/images/chiens-heureux.jpg') }}" alt="">
+		</div>
+		<div class="col-12 col-lg-6">
+			<h1>Bienvenue chez nous</h1>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex libero doloremque consectetur vel aspernatur laudantium adipisci! Possimus, non culpa at amet voluptatem consequatur suscipit illum recusandae natus dolores incidunt ex.</p>
+			<button>Consulter</button>
+		</div>
+	</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Vince/Documents/checkpoint_4/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Vince/Documents/checkpoint_4/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+
+	<div class="container-fluid">
+		<div class="first-div text-center pt-2 pb-4">
+			<img class="w-75" src="{{ asset('build/images/recherche-humain.png') }}" alt="">
+		</div>
+	</div>
+
 {% endblock %}

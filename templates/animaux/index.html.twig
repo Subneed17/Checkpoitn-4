@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Animaux index{% endblock %}
+
+{% block body %}
+    <h1>Animaux index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Race</th>
+                <th>Picture</th>
+                <th>Vaccinate</th>
+                <th>Sterilized</th>
+                <th>Puced</th>
+                <th>Castration</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for animaux in animauxes %}
+            <tr>
+                <td>{{ animaux.id }}</td>
+                <td>{{ animaux.name }}</td>
+                <td>{{ animaux.age }}</td>
+                <td>{{ animaux.race }}</td>
+                <td>{{ animaux.picture }}</td>
+                <td>{{ animaux.vaccinate ? 'Yes' : 'No' }}</td>
+                <td>{{ animaux.sterilized ? 'Yes' : 'No' }}</td>
+                <td>{{ animaux.puced ? 'Yes' : 'No' }}</td>
+                <td>{{ animaux.castration ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('animaux_show', {'id': animaux.id}) }}">show</a>
+                    <a href="{{ path('animaux_edit', {'id': animaux.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('animaux_new') }}">Create new</a>
+{% endblock %}

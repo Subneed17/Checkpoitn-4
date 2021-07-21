@@ -1,0 +1,10 @@
+body {
+    background-color: #ffbc6da6;
+}
+@import 'home.scss';
+@import 'navbar.scss';
+@import 'footer.scss';
+@import 'dog.scss';
+@import 'cat.scss';
+@import 'other.scss';
+@import "~bootstrap/scss/bootstrap";
