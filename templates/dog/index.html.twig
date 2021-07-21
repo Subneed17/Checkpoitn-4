@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Chiens
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="dog-presentation-title">
+			<h2>Nos chiens</h2>
+		</div>
+		<div class="carousel-dog">
+			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="{{ asset('build/images/chiens/chien1.jpg') }}" style="height=" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('build/images/chiens/chien2.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="{{ asset('build/images/chiens/chien3.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	{# <div class="row align-items-start dog-offer">
+		<div class="col-4">
+			<div class="picure-of-offer">
+				<img class="w-100" src="https://wallsdesk.com/wp-content/uploads/2017/01/Dog-full-HD.jpg" alt="">
+			</div>
+		</div>
+	</div> #}
+	{{ form_start(form) }}
+	{{ form_label(form.firstname) }}
+	{{ form_widget(form.firstname) }}
+	{{ form_label(form.lastname) }}
+	{{ form_widget(form.lastname) }}
+	{{ form_label(form.email) }}
+	{{ form_widget(form.email) }}
+	{{ form_label(form.description) }}
+	{{ form_widget(form.description) }}
+	{{ form_label(form.animaux) }}
+	{{ form_widget(form.animaux) }}
+	<button type="submit">Enregistrer</button>
+	{{ form_end(form) }}
+
+    <div class="block-for-infos">
+		<div class="container-fluid">
+			<div class="row informations-home">
+				<div class="col-sm-5">
+					<div class="card for-the-informations">
+						<div class="card-body picture-back-green">
+							<img class="picture-of-grappes" src="https://wallsdesk.com/wp-content/uploads/2017/01/Dog-full-HD.jpg" alt="pepiniere">
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-7">
+					<div class="card for-the-informations">
+						<div class="card-body picture-back-green">
+							<div class="you-see-enjoy">
+								<p>Vous voir heureux nous rend heureux</p>
+							</div>
+							<div class="text-enjoy">
+								<p>Depuis l’arrivée du COVID-19 et suite aux restrictions sanitaires imposées par le gouvernement limitant les canaux de distribution pour la production agricole Française (marchés, cantine, restaurants) de nombreuses filières se retrouvent en difficulté.</p>
+									<p>Face à cette crise, la réaction du monde agricole, de la production et la distribution, a été exemplaire en proposant instantanément des solutions agiles pour créer des débouchés en urgence.</p>
+									<p>Les producteurs pourront ainsi trouver des nouveaux partenaires solidaires pour écouler leurs stocks et ainsi limiter l’impact de la crise.</p>
+							</div>
+							<div class="button-enjoy">
+								<a href="provider"><button class="say-more" type="submit">Voir nos producteurs</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
