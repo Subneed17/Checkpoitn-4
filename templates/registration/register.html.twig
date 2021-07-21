@@ -4,14 +4,20 @@
 
 {% block body %}
     <h1>Register</h1>
-
+<div class="container">
+<div class="connexion-page">
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <div class="pb-2 p-3 pl-3 label-email-register">{{ form_row(registrationForm.email) }}</div><br>
+        <div class="pb-2 p-3 password-register ">{{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}</div><br>
+        <div class="pb-2 p-3">{{ form_row(registrationForm.agreeTerms) }}</div><br>
+    <div class="w-75 text-end pt-3 bouton-sign-in">
+        <button type="submit" class="btn">S'inscrire</button>
+        </div>
     {{ form_end(registrationForm) }}
+</div>
+</div>
+    		
 {% endblock %}

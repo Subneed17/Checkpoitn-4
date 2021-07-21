@@ -20,24 +20,14 @@ class Category
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $dog;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $cat;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $other;
-
-    /**
      * @ORM\OneToMany(targetEntity=Animaux::class, mappedBy="category")
      */
     private $animals;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $name;
 
     public function __construct()
     {
@@ -48,43 +38,6 @@ class Category
     {
         return $this->id;
     }
-
-    public function getDog(): ?string
-    {
-        return $this->dog;
-    }
-
-    public function setDog(string $dog): self
-    {
-        $this->dog = $dog;
-
-        return $this;
-    }
-
-    public function getCat(): ?string
-    {
-        return $this->cat;
-    }
-
-    public function setCat(string $cat): self
-    {
-        $this->cat = $cat;
-
-        return $this;
-    }
-
-    public function getOther(): ?string
-    {
-        return $this->other;
-    }
-
-    public function setOther(string $other): self
-    {
-        $this->other = $other;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Animaux[]
      */
@@ -111,6 +64,18 @@ class Category
                 $animal->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }

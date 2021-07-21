@@ -1,0 +1,47 @@
+.connexion-page {
+    max-width: 60%;
+    margin: auto;
+    padding: 3rem;
+    border: 2px solid;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+@media screen and(max-width:992px) {
+.connexion-page {
+    max-width: 80%;
+}
+}
+
+.email-login {
+    width: 80%;
+}
+@media screen and(max-width:576px) {
+    .email-login {
+        width: 100%;
+    }
+}
+.password-login {
+    width: 50%;
+}
+@media screen and(max-width:576px) {
+    .password-login {
+        width: 80%;
+    }
+}
+.bouton-sign-in {
+    button {
+        border: 1px solid rgba(221, 168, 22, 0.904);
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 1.2rem;
+    }
+    button:hover {
+        background-color: rgba(221, 168, 22, 0.904);
+        border: 1px solid black;
+    }
+}
+
+.connected-message {
+    border:1px solid rgba(221, 168, 22, 0.904);
+    box-shadow: 2px 1px rgb(221 168 22 / 90%);
+}
+
