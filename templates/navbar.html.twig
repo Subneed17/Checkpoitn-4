@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light">
 	<div class="container-fluid">
-		<div class="logo-site-web">
-			<img class="logo-spa-saintes" src="{{ asset('build/images/logo_small.png') }}" alt="">
+		<div class="logo-site-web" >
+			<a href="{{ path("home") }}">
+			<img class="logo-spa-saintes"  src="{{ asset('build/images/logo_small.png') }}" alt=""></a>
 		</div>
 		<div class="nav-dropdown-account d-flex">
 			<div class="dropdown mr-4">
@@ -19,8 +20,6 @@
 						<a class="dropdown-item" href="/../autres/index.html.twig">Autres</a>
 					</li>
 				</ul>
-			</div>
-            <button class="button-account">Se connecter</button>
 		</div>
 	</div>
 </nav>

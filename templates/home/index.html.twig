@@ -4,30 +4,31 @@
 {% endblock %}
 
 {% block body %}
-	<div class="row">
-		<div class="ok">
-			<div class="div-banniere">
-				<img class="w-100" src="{{ asset('build/images/bannière-spa.png') }}" alt="">
+
+	<div class="intro-home text-center">
+		<div class="img-route-picture">
+			<img class="w-100" src="{{ asset('build/images/chien-route.jpg') }}" alt="">
+		</div>
+		<div class="title-on-picture">
+			<h1>Notre refuge recueille 250 animaux chaques années</h1>
+		</div>
+		<div class="d-flex row">
+		<div class="pt-3 d-flex histoire-chien">
+			<div class="img-refuge-first col-sm-5">
+				<img class="w-75 p-3" src="{{ asset('build/images/chat1.jpg') }}" alt="">
 			</div>
-		</div>
-	</div>
+			<div class="description-refuge-chien col-sm-7">
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos odit eveniet, aperiam nostrum, ad ut aliquid consequuntur quae cum porro voluptates nesciunt accusantium perferendis vel dolor impedit a autem libero.</p>
+			</div>
+			</div>
 
-	<div class="d-flex">
-		<div class="col-12 col-lg-6 text-center">
-			<img class="h-50 w-100" src="{{ asset('build/images/chiens-heureux.jpg') }}" alt="">
-		</div>
-		<div class="col-12 col-lg-6">
-			<h1>Bienvenue chez nous</h1>
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex libero doloremque consectetur vel aspernatur laudantium adipisci! Possimus, non culpa at amet voluptatem consequatur suscipit illum recusandae natus dolores incidunt ex.</p>
-			<button>Consulter</button>
 		</div>
 	</div>
 
 
-	<div class="container-fluid">
-		<div class="first-div text-center pt-2 pb-4">
-			<img class="w-75" src="{{ asset('build/images/recherche-humain.png') }}" alt="">
-		</div>
-	</div>
-
+	{# <div class="container-fluid">
+								<div class="first-div text-center pt-2 pb-4">
+									<img class="w-75" src="{{ asset('build/images/recherche-humain.png') }}" alt="">
+								</div>
+							</div>  #}
 {% endblock %}

@@ -1,15 +1,65 @@
-
-.div-banniere {
-    height: 82%;
-    img {
-        height: 100%;
+.intro-home {
+    position: relative;
+}
+.title-on-picture {
+    position: absolute;
+    top: 14%;
+    right: 9%;
+    width: 48%;
+}
+@media screen and(max-width:992px) {
+    .title-on-picture {
+        position: absolute;
+    top:9%;
+    right: 9%;
+    width: 48%;
+    }
+}
+@media screen and(max-width:768px) {
+    .title-on-picture {
+        position: absolute;
+    top: 6%;
+    right: 9%;
+    width: 48%;
+    }
+}
+@media screen and(max-width:576px) {
+    .title-on-picture {
+        position: absolute;
+    top: 12%;
+    right: 9%;
+    width: 48%;
     }
 }
 
-.first-div {
-    background-color: #ffbc6da6;;
+
+h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 3px 3px black;
 }
 
-welcome {
-    background-color: #ffbc6da6;
+@media screen and(max-width:992px) {
+h1 {
+        font-size: 2.5rem;
+    }
 }
+@media screen and(max-width:768px) {
+    h1 {
+            font-size: 2rem;
+        }
+    }
+        @media screen and(max-width:576px) {
+            h1 {
+                    font-size: 1.4rem;
+                }
+            }
+
+// .description-refuge-chien {
+//     padding: 4rem;
+//     border: 1px solid white;
+// }
+// .description-refuge-chat {
+//     padding: 4rem;
+//     border: 1px solid white;
+// }
