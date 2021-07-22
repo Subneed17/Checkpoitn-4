@@ -54,12 +54,38 @@ h1 {
                     font-size: 1.4rem;
                 }
             }
+.histoire-du-refuge {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+}
+@media screen and(max-width:576px) {
+    .histoire-du-refuge {
+        display: block;
+    }
+}
 
-// .description-refuge-chien {
-//     padding: 4rem;
-//     border: 1px solid white;
-// }
-// .description-refuge-chat {
-//     padding: 4rem;
-//     border: 1px solid white;
-// }
+.img-refuge-first {
+    margin-bottom: 2rem;
+}
+
+
+.div-three-picture {
+    display: flex;
+}
+@media screen and(max-width:576px) {
+    .div-three-picture {
+        display: block;
+    }
+}
+.circle-picture-home {
+    clip-path: ellipse(45% 50%);
+    width: 75%;
+    height: 100%;
+}
+@media screen and(max-width:576px) {
+    .circle-picture-home {
+        display: block;
+        margin: auto;
+    }
+}

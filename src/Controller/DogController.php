@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Message;
-use App\Form\MessageType;
+use App\Form\Message1Type;
+use App\Repository\AnimauxRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,10 +16,17 @@ class DogController extends AbstractController
      */
     public function index(): Response
     {
-        $form = $this->createForm(MessageType::class);
-
         return $this->render('dog/index.html.twig', [
-            'form' => $form->createView(),
+            'controller_name' => 'DogController',
         ]);
     }
-}
+        /**
+     * @Route("/dog/show", name="dog_show")
+     */
+    // public function show(AnimauxRepository $animauxRepository): Response 
+    // {
+    //     return $this->render('animaux/show.html.twig', [
+    //         'dog' => $dogs,
+    //     ]);
+    // }
+ }

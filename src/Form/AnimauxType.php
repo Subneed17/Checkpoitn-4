@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Animaux;
+use App\Entity\Category;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,8 +22,12 @@ class AnimauxType extends AbstractType
             ->add('sterilized')
             ->add('puced')
             ->add('castration')
-            ->add('category')
-            ->add('messages')
+            ->add('sexe')
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label'=> 'name'
+            ])
+            //  ->add('messages')
         ;
     }
 

@@ -1,10 +1,23 @@
+.dog-presentation-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    h2 {
+        padding: 1rem;
+        border: 2px solid orange;
+    }
+}
+.dog-page {
+    width: 70%;
+    margin: auto;
+}
 
-.block-for-infos {
+
+.carte-dog {
     background-color: #59ae52;
     margin-top: 100px;
 }
 @media screen and (max-width: 768px) {
-    .row.informations-home {
+    .row.informations-dog {
         display: block;
         text-align: -webkit-center;
     }
@@ -52,15 +65,13 @@
     background-color: #59ae52;
 }
 
-.button-enjoy .say-more {
-    width: auto;
+.button-contact-by-id {
     float: right;
-}
-@media screen and (max-width: 576px) {
-    .button-enjoy {
-        text-align: end;
-        }
+    .say-more {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 15px;
     }
+}
 
 
 .you-see-enjoy p {
@@ -74,27 +85,6 @@
  }
 
 
-.button-enjoy button {
-    border-radius: 19px;
-    text-align: center;
-    width: 25%;
-}
 
 
-.two-title-and-text {
-    width: 50%;
-    margin: auto;
-    color: white;
-}
-@media screen and (max-width: 768px) {
-    .two-title-and-text{
-        display: block;
-        text-align: -webkit-center;
-    }
-}
 
-.actuality {
-    margin-top: 90px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-}

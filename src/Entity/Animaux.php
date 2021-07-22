@@ -70,6 +70,11 @@ class Animaux
      */
     private $messages;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $sexe;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -211,6 +216,18 @@ class Animaux
         if ($this->messages->removeElement($message)) {
             $message->removeAnimaux($this);
         }
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): self
+    {
+        $this->sexe = $sexe;
 
         return $this;
     }
