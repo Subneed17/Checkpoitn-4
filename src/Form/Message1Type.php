@@ -17,10 +17,10 @@ class Message1Type extends AbstractType
             ->add('lastname')
             ->add('email')
             ->add('description')
-            ->add('animaux', EntityType::class, [
-                'class' => Animaux::class,
-                'choice_label'=> ''
-            ]);
+            // ->add('animaux', EntityType::class, [
+            //     'class' => Animaux::class,
+            //     'choice_label'=> ''
+            // ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
