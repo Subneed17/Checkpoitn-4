@@ -34,13 +34,14 @@
 					<ul class="list-group list-group-flush">
 						<li class="list-group-item"> {{ animaux.age }} an</li>
 						<li class="list-group-item"> {{ animaux.race }}</li>
-                        <li class="list-group-item"> </li>
+                        <li class="list-group-item">
+						<a href="{{ path('animaux_edit', {'id': animaux.id}) }}" ><button>Modifier</button></li></a>
 					</ul>
 				</div>
 			</div>
 		
 	{% endfor %}
     </div>
-    <a href="{{ path('animaux_new') }}">Create new</a>
+    <a href="{{ path('animaux_new') }}"><button class="w-25 mb-5">Create new</button></a>
     </div>
 	{% endblock %}

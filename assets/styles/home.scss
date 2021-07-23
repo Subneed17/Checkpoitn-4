@@ -83,11 +83,12 @@ h1 {
     width: 75%;
     height: 100%;
     opacity: 0.8;
+    transition: transform 1.5s;
 }
 .circle-picture-home:hover {
     transform: scale(1.2);
     opacity: 1;
-    transition: transform 1.5s;
+
 }
 @media screen and(max-width:576px) {
     .circle-picture-home {
