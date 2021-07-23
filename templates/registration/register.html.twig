@@ -1,37 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}Inscription
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
-<div class="container">
-<div class="connexion-page">
-<h3 class="text-center">INSCRIPTION</h3>
-    {{ form_start(registrationForm) }}
+	<div class="container">
+		<div class="connexion-page">
+			<h3 class="text-center">INSCRIPTION</h3>
+			{{ form_start(registrationForm) }}
 
-        <div class="p-1 pl-3 label-email-register">{{ form_row(registrationForm.email) }}</div><br>
-        <div class="p-1 password-register ">{{ form_row(registrationForm.plainPassword, {
+			<div class="p-1 pl-3 label-email-register">{{ form_row(registrationForm.email) }}</div><br>
+			<div class="p-1 password-register ">{{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}</div><br>
-        <div class="p-1">{{ form_row(registrationForm.agreeTerms) }}</div><br>
-    <div class="w-75 text-end pt-3 bouton-sign-in">
-        <button type="submit" class="btn">S'inscrire</button>
+			<div class="p-1">{{ form_row(registrationForm.agreeTerms) }}</div><br>
+			<div class="w-75 text-end pt-3 bouton-sign-in">
+				<button type="submit" class="btn">S'inscrire</button>
+			</div>
+			{{ form_end(registrationForm) }}
+		</div>
         </div>
-    {{ form_end(registrationForm) }}
-</div>
-{# </div>
-    		<div class="form-control w-50 text-center mb-5" style="margin:auto">
-            {{ form_start(registrationForm) }}
-            <div class="mb-4">
-            {{ form_label(registrationForm.email) }}
-            {{ form_widget(registrationForm.email) }}
-</div>
-            {{ form_widget(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_widget(registrationForm.agreeTerms) }}
-         {{ form_end(registrationForm) }}
-            
-            </div>
-            </div> #}
-{% endblock %}
+
+	{% endblock %}
