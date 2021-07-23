@@ -42,7 +42,7 @@ class Message
     /**
      * @ORM\ManyToOne(targetEntity=Animaux::class, inversedBy="messages")
      */
-    private $Animal;
+    private $animal;
 
     public function __construct()
     {
@@ -104,12 +104,12 @@ class Message
 
     public function getAnimal(): ?Animaux
     {
-        return $this->Animal;
+        return $this->animal;
     }
 
-    public function setAnimal(?Animaux $Animal): self
+    public function setAnimal(?Animaux $animal): self
     {
-        $this->Animal = $Animal;
+        $this->animal = $animal;
 
         return $this;
     }

@@ -32,11 +32,14 @@ class MessageController extends AbstractController
     public function new(Request $request, Animaux $animaux): Response
     {
         $message = new Message();
+        $message->setAnimal($animaux);
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
+      
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            // $animaux->addMessage($message);
             $entityManager->persist($message);
             $entityManager->flush();
 
