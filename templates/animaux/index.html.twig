@@ -1,49 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Animaux index{% endblock %}
+{% block title %}Nos animaux
+{% endblock %}
 
 {% block body %}
-    <h1>Animaux index</h1>
+<div class="animaux-page">
+	<h1 class="text-center mt-3 mb-2 p-3">La liste complète de nos invité(e)s</h1>
+    </div>
+	<div class="container">
+		<div class="w-75 text-center img-couverture-animaux pb-5" style="margin:auto">
+		<img class="w-100" src="{{ asset('build/images/refuge-animaux.jpg') }}" alt="">
+		</div>
+	</div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Race</th>
-                <th>Picture</th>
-                <th>Vaccinate</th>
-                <th>Sterilized</th>
-                <th>Puced</th>
-                <th>Castration</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for animaux in animauxes %}
-            <tr>
-                <td>{{ animaux.id }}</td>
-                <td>{{ animaux.name }}</td>
-                <td>{{ animaux.age }}</td>
-                <td>{{ animaux.race }}</td>
-                <td>{{ animaux.picture }}</td>
-                <td>{{ animaux.vaccinate ? 'Yes' : 'No' }}</td>
-                <td>{{ animaux.sterilized ? 'Yes' : 'No' }}</td>
-                <td>{{ animaux.puced ? 'Yes' : 'No' }}</td>
-                <td>{{ animaux.castration ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('animaux_show', {'id': animaux.id}) }}">show</a>
-                    <a href="{{ path('animaux_edit', {'id': animaux.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="10">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
+
+		
+
+
+
+    <div class="container">
+            <div class="row list-message-admin d-flex p-2 text-center" style="text-align:webkit-center">
+	{% for animaux in animauxes %}
+
+			<div class="col-sm-6 pb-5">
+				<div class="card w-75 for-margin-card">
+					<img src="{{ animaux.picture }}" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">{{ animaux.name }}</h5>
+						<p class="card-text">Message du destinataire : {{ animaux.description }}
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, beatae. Aliquam minus dolorem illo beatae! Ipsa in esse placeat cupiditate cumque officia aspernatur ea doloribus architecto? Minima nihil expedita omnis.</p>
+					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item"> {{ animaux.age }} an</li>
+						<li class="list-group-item"> {{ animaux.race }}</li>
+                        <li class="list-group-item"> </li>
+					</ul>
+				</div>
+			</div>
+		
+	{% endfor %}
+    </div>
     <a href="{{ path('animaux_new') }}">Create new</a>
-{% endblock %}
+    </div>
+	{% endblock %}

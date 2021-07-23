@@ -40,9 +40,9 @@ class Message
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Animaux::class, inversedBy="messages")
+     * @ORM\ManyToOne(targetEntity=Animaux::class, inversedBy="messages")
      */
-    private $animaux;
+    private $Animal;
 
     public function __construct()
     {
@@ -102,27 +102,16 @@ class Message
         return $this;
     }
 
-    /**
-     * @return Collection|Animaux[]
-     */
-    public function getAnimaux(): Collection
+    public function getAnimal(): ?Animaux
     {
-        return $this->animaux;
+        return $this->Animal;
     }
 
-    public function addAnimaux(Animaux $animaux): self
+    public function setAnimal(?Animaux $Animal): self
     {
-        if (!$this->animaux->contains($animaux)) {
-            $this->animaux[] = $animaux;
-        }
+        $this->Animal = $Animal;
 
         return $this;
     }
 
-    public function removeAnimaux(Animaux $animaux): self
-    {
-        $this->animaux->removeElement($animaux);
-
-        return $this;
-    }
 }

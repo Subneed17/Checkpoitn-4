@@ -1,85 +1,118 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Les Chiens
+{% block title %}Le Parc des Chiens
 {% endblock %}
 
 {% block body %}
 	<div class="container">
-		<div class="dog-presentation-title">
-			<h2>Nos chiens</h2>
+		<div class="text-center dog-presentation-title">
+			<h2>Le parc des chiens</h2>
 		</div>
-		<div class="carousel-dog">
-			<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<img src="{{ asset('build/images/chiens/chien1.jpg') }}" style="height=" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="{{ asset('build/images/chiens/chien2.jpg') }}" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="{{ asset('build/images/chiens/chien3.jpg') }}" class="d-block w-100" alt="...">
+		<div id="carouselExampleCaptions" class="carousel slide dog-page" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner text-center">
+				<div class="carousel-item active">
+					<img src="{{ asset('build/images/parc-chiens-1.png') }}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Entrée au refuge</h3>
 					</div>
 				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
+				<div class="carousel-item">
+					<img src="{{ asset('build/images/parc-chiens-2.png') }}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Parc extérieur de 3000m2</h3>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="{{ asset('build/images/parc-chiens-3.png') }}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Terrase extérieur</h3>
+					</div>
+				</div>
 			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</div>
+	<div class="container-fluid p-5">
+		<div class="w-100 text-center p-3 message-animals-attention">
+			<p style="font-size:13px; font-weight:700;">Legs en faveur de notre S.P.A. : Notre S.P.A. est Reconnue d’Utilité Publique.
+Cette reconnaissance permet notamment à notre Association de percevoir des donations et des legs et d’être exonérée de tout droit de succession.
+L’intégralité des legs sera utilisée pour améliorer le sort des animaux que nous prenons en charge.
+Si vous avez la générosité de prévoir un legs en faveur de notre Refuge, il est toujours plus raisonnable de le faire chez votre notaire, en précisant bien que votre libéralité sera destinée à la S.P.A. de Saintes. Ainsi, vous aurez la certitude de nous aider à poursuive notre action.</p>
 		</div>
 	</div>
 
-	{# <div class="row align-items-start dog-offer">
-		<div class="col-4">
-			<div class="picure-of-offer">
-				<img class="w-100" src="https://wallsdesk.com/wp-content/uploads/2017/01/Dog-full-HD.jpg" alt="">
-			</div>
-		</div>
-	</div> #}
-	{{ form_start(form) }}
-	{{ form_label(form.firstname) }}
-	{{ form_widget(form.firstname) }}
-	{{ form_label(form.lastname) }}
-	{{ form_widget(form.lastname) }}
-	{{ form_label(form.email) }}
-	{{ form_widget(form.email) }}
-	{{ form_label(form.description) }}
-	{{ form_widget(form.description) }}
-	<button type="submit">Enregistrer</button>
-	{{ form_end(form) }}
 
-    <div class="block-for-infos">
-		<div class="container-fluid">
-			<div class="row informations-home">
-				<div class="col-sm-5">
-					<div class="card for-the-informations">
-						<div class="card-body picture-back-green">
-							<img class="picture-of-grappes" src="https://wallsdesk.com/wp-content/uploads/2017/01/Dog-full-HD.jpg" alt="pepiniere">
-						</div>
+	{% for dog in dogs %}
+		<div class="container">
+				<div class="row d-flex all-dog h-50 mb-5 h-50">
+					<div class="img-chiens col-sm-5 h-50">
+						<img class="w-100" src="{{ dog.picture }}" alt="">
 					</div>
-				</div>
-				<div class="col-sm-7">
-					<div class="card for-the-informations">
-						<div class="card-body picture-back-green">
-							<div class="you-see-enjoy">
-								<p>Vous voir heureux nous rend heureux</p>
-							</div>
-							<div class="text-enjoy">
-								<p>Depuis l’arrivée du COVID-19 et suite aux restrictions sanitaires imposées par le gouvernement limitant les canaux de distribution pour la production agricole Française (marchés, cantine, restaurants) de nombreuses filières se retrouvent en difficulté.</p>
-									<p>Face à cette crise, la réaction du monde agricole, de la production et la distribution, a été exemplaire en proposant instantanément des solutions agiles pour créer des débouchés en urgence.</p>
-									<p>Les producteurs pourront ainsi trouver des nouveaux partenaires solidaires pour écouler leurs stocks et ainsi limiter l’impact de la crise.</p>
-							</div>
-							<div class="button-enjoy">
-								<a href="provider"><button class="say-more" type="submit">Voir nos producteurs</button></a>
-							</div>
+					<div class="text-chiens col-sm-7 h-50 p-4">
+						<p>{{ dog.description }}</p><br>
+						<div class="d-flex p-3 ">
+							<ul class="w-50 infos" style="list-style:none">
+								<li>Nom : {{ dog.name }}
+								</li>
+								<li>Âge : {{ dog.age }}
+								</li>
+								<li>Sexe : {{ dog.sexe }}
+								</li>
+								<li>Race : {{ dog.race }}
+								</li>
+							</ul>
+							<ul class="w-50 infos" style="list-style:none">
+								<li>Vacciné(e) :{% if dog.vaccinate == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+								<li>Sterilisé(e) :{% if dog.sterilized == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+								<li>Pucé(e) :{% if dog.puced == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+								<li>Castré(e) :{% if dog.castration == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+								<li>Tatoué(e) :{% if dog.tatoo == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+							</ul>
+						</div>
+						<div class="button-contact-by-id p-3 pt-4 text-center">
+							<a href="{{ path("message_new", {'id': dog.id}) }}">
+								<button class="say-more" type="submit">Contactez</button>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-{% endblock %}
+		{% endfor %}
+	{% endblock %}

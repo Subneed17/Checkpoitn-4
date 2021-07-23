@@ -15,8 +15,7 @@ class MessageType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('email')
-            ->add('description')
-        ;
+            ->add('description');
     }
 
     public function configureOptions(OptionsResolver $resolver)

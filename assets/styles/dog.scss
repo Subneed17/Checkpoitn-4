@@ -1,100 +1,35 @@
-
-.block-for-infos {
-    background-color: #59ae52;
-    margin-top: 100px;
-}
-@media screen and (max-width: 768px) {
-    .row.informations-home {
-        display: block;
-        text-align: -webkit-center;
+.dog-presentation-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    h2 {
+        padding: 1rem;
+        border: 2px solid orange;
     }
 }
-
-@media screen and (max-width: 768px) {
-    .col-sm-5 {
-        width: 90%;
-    }
-    .col-sm-7 {
-        width: 100%;
-    }
-    .button-enjoy .say-more {
-        float: right;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .col-sm-7 {
-        width: 100%;
-    }
-}
-.card.for-the-informations {
-    background-color: #59ae52;
-    border: none;
-}
-
-.card-body.picture-back-green {
-    color: white;
-}
-.picture-of-grappes {
-    width: 100%;
-    object-fit: cover;
-    height: 100%;
-}
-@media screen and (max-width: 992px) {
-    .picture-of-grappes {
-        margin-top: 78px;
-        margin: auto;
-        height: 50%;
-    }
-}
-
-.card-body.two-title-and-text {
-    background-color: #59ae52;
-}
-
-.button-enjoy .say-more {
-    width: auto;
-    float: right;
-}
-@media screen and (max-width: 576px) {
-    .button-enjoy {
-        text-align: end;
-        }
-    }
-
-
-.you-see-enjoy p {
-    font-size: 2.8rem;
-    margin-top: 0
- }
-
-
- .text-enjoy p {
-    font-size: 1.2rem;
- }
-
-
-.button-enjoy button {
-    border-radius: 19px;
-    text-align: center;
-    width: 25%;
-}
-
-
-.two-title-and-text {
-    width: 50%;
+.dog-page {
+    width: 70%;
     margin: auto;
-    color: white;
 }
-@media screen and (max-width: 768px) {
-    .two-title-and-text{
-        display: block;
-        text-align: -webkit-center;
+
+ul.infos {
+    li {
+        padding: 0.5rem;
     }
 }
 
-.actuality {
-    margin-top: 90px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
+.for-respons {
+    display: flex;
+}
+
+@media screen and(max-width:768px) {
+    .for-respons {
+        display: block;
+    }
+}
+
+.all-dog {
+        padding: 2rem;
+        border: 2px solid orange;
+        background: rgb(93 206 200 / 37%);
+        border-radius: 20px;
 }
