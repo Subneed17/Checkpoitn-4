@@ -10,14 +10,13 @@
 		</div>
 </div>
 
-
 	<div class="container">
 		<div class="row list-message-admin d-flex p-2 text-center" style="text-align:webkit-center">
 			{% for message in messages %}
 				<div class="col-sm-6 pb-5">
 					<div class="card w-75 for-margin-card">
-						<img src="{{ asset('build/images/chien-malheureux.jpg') }}" class="card-img-top" alt="...">
 						<div class="card-body">
+						<img src="" class="card-img-top" alt="...">
 							<h5 class="card-title">{{ message.firstname }}</h5>
 							<p class="card-text">Message du destinataire :
 								{{ message.description }}
