@@ -11,80 +11,25 @@
     margin: auto;
 }
 
-
-.carte-dog {
-    background-color: #59ae52;
-    margin-top: 100px;
+ul.infos {
+    li {
+        padding: 0.5rem;
+    }
 }
-@media screen and (max-width: 768px) {
-    .row.informations-dog {
+
+.for-respons {
+    display: flex;
+}
+
+@media screen and(max-width:768px) {
+    .for-respons {
         display: block;
-        text-align: -webkit-center;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .col-sm-5 {
-        width: 90%;
-    }
-    .col-sm-7 {
-        width: 100%;
-    }
-    .button-enjoy .say-more {
-        float: right;
-    }
+.all-dog {
+        padding: 2rem;
+        border: 2px solid orange;
+        background: rgb(93 206 200 / 37%);
+        border-radius: 20px;
 }
-
-@media screen and (max-width: 576px) {
-    .col-sm-7 {
-        width: 100%;
-    }
-}
-.card.for-the-informations {
-    background-color: #59ae52;
-    border: none;
-}
-
-.card-body.picture-back-green {
-    color: white;
-}
-.picture-of-grappes {
-    width: 100%;
-    object-fit: cover;
-    height: 100%;
-}
-@media screen and (max-width: 992px) {
-    .picture-of-grappes {
-        margin-top: 78px;
-        margin: auto;
-        height: 50%;
-    }
-}
-
-.card-body.two-title-and-text {
-    background-color: #59ae52;
-}
-
-.button-contact-by-id {
-    float: right;
-    .say-more {
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        font-size: 15px;
-    }
-}
-
-
-.you-see-enjoy p {
-    font-size: 2.8rem;
-    margin-top: 0
- }
-
-
- .text-enjoy p {
-    font-size: 1.2rem;
- }
-
-
-
-
-

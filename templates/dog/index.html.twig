@@ -6,7 +6,7 @@
 {% block body %}
 	<div class="container">
 		<div class="text-center dog-presentation-title">
-			<h2>Nos chiens</h2>
+			<h2>Le parc des chiens</h2>
 		</div>
 		<div id="carouselExampleCaptions" class="carousel slide dog-page" data-bs-ride="carousel">
 			<div class="carousel-indicators">
@@ -44,64 +44,75 @@
 			</button>
 		</div>
 	</div>
+	<div class="container-fluid p-5">
+		<div class="w-100 text-center p-3 message-animals-attention">
+			<p style="font-size:13px; font-weight:700;">Legs en faveur de notre S.P.A. : Notre S.P.A. est Reconnue d’Utilité Publique.
+Cette reconnaissance permet notamment à notre Association de percevoir des donations et des legs et d’être exonérée de tout droit de succession.
+L’intégralité des legs sera utilisée pour améliorer le sort des animaux que nous prenons en charge.
+Si vous avez la générosité de prévoir un legs en faveur de notre Refuge, il est toujours plus raisonnable de le faire chez votre notaire, en précisant bien que votre libéralité sera destinée à la S.P.A. de Saintes. Ainsi, vous aurez la certitude de nous aider à poursuive notre action.</p>
+		</div>
+	</div>
 
-	<div class="carte-dog">
-		<div class="container-fluid">
-			<div class="row informations-dog">
-				<div class="col-sm-5">
-					<div class="card for-the-informations">
-						<div class="card-body picture-back-green">
-							<img class="picture-of-grappes" src="https://wallsdesk.com/wp-content/uploads/2017/01/Dog-full-HD.jpg" alt="pepiniere">
-						</div>
+
+	{% for dog in dogs %}
+		<div class="container">
+				<div class="row d-flex all-dog h-50 mb-5 h-50">
+					<div class="img-chiens col-sm-5 h-50">
+						<img class="w-100" src="{{ dog.picture }}" alt="">
 					</div>
-				</div>
-				<div class="col-sm-7">
-					<div class="card for-the-informations">
-						<div class="card-body picture-back-green">
-							<div class="you-see-enjoy">
-								<p>Vous voir heureux nous rend heureux</p>
-							</div>
-							<div class="text-enjoy">
-								<p>Depuis l’arrivée du COVID-19 et suite aux restrictions sanitaires imposées par le gouvernement limitant les canaux de distribution pour la production agricole Française (marchés, cantine, restaurants) de nombreuses filières se retrouvent en difficulté.</p>
-								<div class="d-flex">
-									<div class="w-50" style="font-size:1.5rem">
-										<ul style="list-style:none">
-											<li>Nom :
-											</li>
-											<li>Âge :
-											</li>
-											<li>Sexe :
-											</li>
-											<li>Race :
-											</li>
-										</ul>
-									</div>
-									<div class="w-50" style="font-size:1.5rem">
-										<ul style="list-style:none">
-											<li>Vacciné(e) :
-											</li>
-											<li>Sterilisé(e) :
-											</li>
-											<li>Pucé(e) :
-											</li>
-											<li>Tatoué(e) :
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="d-flex">
-								<div class="button-contact-by-id p-3 pt-4 text-center">
-									<a href="provider">
-										<button href="" class="say-more" type="submit">Contactez</button>
-										{# {{ path('offer_show', {'id': offer.id}) }} #}
-									</a>
-								</div>
-							</div>
+					<div class="text-chiens col-sm-7 h-50 p-4">
+						<p>{{ dog.description }}</p><br>
+						<div class="d-flex p-3 ">
+							<ul class="w-50 infos" style="list-style:none">
+								<li>Nom : {{ dog.name }}
+								</li>
+								<li>Âge : {{ dog.age }}
+								</li>
+								<li>Sexe : {{ dog.sexe }}
+								</li>
+								<li>Race : {{ dog.race }}
+								</li>
+							</ul>
+							<ul class="w-50 infos" style="list-style:none">
+								<li>Vacciné(e) :{% if dog.vaccinate == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+								<li>Sterilisé(e) :{% if dog.sterilized == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+								<li>Pucé(e) :{% if dog.puced == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+								<li>Castré(e) :{% if dog.castration == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+								<li>Tatoué(e) :{% if dog.tatoo == 1 %}
+								Oui
+							{% else %}
+								Non
+							{% endif %}
+								</li>
+							</ul>
+						</div>
+						<div class="button-contact-by-id p-3 pt-4 text-center">
+							<a href="{{ path("message_new", {'id': dog.id}) }}">
+								<button class="say-more" type="submit">Contactez</button>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-{% endblock %}
+		{% endfor %}
+	{% endblock %}

@@ -65,15 +65,26 @@ class Animaux
      */
     private $category;
 
+
     /**
-     * @ORM\ManyToMany(targetEntity=Message::class, mappedBy="animaux")
+     * @ORM\Column(type="string", length=255)
+     */
+    private $sexe;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="Animal")
      */
     private $messages;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $sexe;
+    private $description;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $tatoo;
 
     public function __construct()
     {
@@ -193,6 +204,18 @@ class Animaux
         return $this;
     }
 
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(string $sexe): self
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
     /**
      * @return Collection|Message[]
      */
@@ -205,7 +228,7 @@ class Animaux
     {
         if (!$this->messages->contains($message)) {
             $this->messages[] = $message;
-            $message->addAnimaux($this);
+            $message->setAnimal($this);
         }
 
         return $this;
@@ -214,20 +237,35 @@ class Animaux
     public function removeMessage(Message $message): self
     {
         if ($this->messages->removeElement($message)) {
-            $message->removeAnimaux($this);
+            // set the owning side to null (unless already changed)
+            if ($message->getAnimal() === $this) {
+                $message->setAnimal(null);
+            }
         }
 
         return $this;
     }
 
-    public function getSexe(): ?string
+    public function getDescription(): ?string
     {
-        return $this->sexe;
+        return $this->description;
     }
 
-    public function setSexe(string $sexe): self
+    public function setDescription(string $description): self
     {
-        $this->sexe = $sexe;
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getTatoo(): ?bool
+    {
+        return $this->tatoo;
+    }
+
+    public function setTatoo(bool $tatoo): self
+    {
+        $this->tatoo = $tatoo;
 
         return $this;
     }

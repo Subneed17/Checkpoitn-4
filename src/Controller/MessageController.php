@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Animaux;
 use App\Entity\Message;
-use App\Form\Message1Type;
+use App\Form\MessageType;
 use App\Repository\MessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,12 +27,12 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="message_new", methods={"GET","POST"})
+     * @Route("/new/{id<\d+>}", name="message_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Animaux $animaux): Response
     {
         $message = new Message();
-        $form = $this->createForm(Message1Type::class, $message);
+        $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -39,7 +40,7 @@ class MessageController extends AbstractController
             $entityManager->persist($message);
             $entityManager->flush();
 
-            return $this->redirectToRoute('message_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('message/new.html.twig', [
@@ -63,7 +64,7 @@ class MessageController extends AbstractController
      */
     public function edit(Request $request, Message $message): Response
     {
-        $form = $this->createForm(Message1Type::class, $message);
+        $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

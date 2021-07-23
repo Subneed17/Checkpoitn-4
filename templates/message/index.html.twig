@@ -1,64 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Message index
+{% block title %}Les animaux du refuge
 {% endblock %}
 
 {% block body %}
+	<div class="container">
+		<div class="text-center w-70">
+			<h2 class="">Mes messages</h2>
+		</div>
+</div>
 
-	<h1>Message index</h1>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Firstname</th>
-				<th>Lastname</th>
-				<th>Email</th>
-				<th>Description</th>
-				<th>actions</th>
-			</tr>
-		</thead>
-		<tbody>
+	<div class="container">
+		<div class="row list-message-admin d-flex p-2 text-center" style="text-align:webkit-center">
 			{% for message in messages %}
-				<tr>
-					<td>{{ message.id }}</td>
-					<td>{{ message.firstname }}</td>
-					<td>{{ message.lastname }}</td>
-					<td>{{ message.email }}</td>
-					<td>{{ message.description }}</td>
-					<td>
-						<a href="{{ path('message_show', {'id': message.id}) }}">show</a>
-						<a href="{{ path('message_edit', {'id': message.id}) }}">edit</a>
-					</td>
-				</tr>
-			{% else %}
-				<tr>
-					<td colspan="6">no records found</td>
-				</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-    		<div class="container">
-            <div class="row list-message-admin d-flex p-2 text-center" style="text-align:webkit-center">
-	{% for message in messages %}
 
-			<div class="col-sm-6 pb-5">
-				<div class="card w-75 for-margin-card">
-					<img src="{{ asset('build/images/chien-malheureux.jpg') }}" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">{{ message.firstname }}</h5>
-						<p class="card-text">Message du destinataire : {{ message.description }}
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, beatae. Aliquam minus dolorem illo beatae! Ipsa in esse placeat cupiditate cumque officia aspernatur ea doloribus architecto? Minima nihil expedita omnis.</p>
+				<div class="col-sm-6 pb-5">
+					<div class="card w-75 for-margin-card">
+						<img src="{{ asset('build/images/chien-malheureux.jpg') }}" class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">{{ message.firstname }}</h5>
+							<p class="card-text">Message du destinataire :
+								{{ message.description }}
+								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, beatae. Aliquam minus dolorem illo beatae! Ipsa in esse placeat cupiditate cumque officia aspernatur ea doloribus architecto? Minima nihil expedita omnis.</p>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">Nom du destinataire :
+								{{ message.firstname }}
+								{{ message.lastname }}</li>
+							<li class="list-group-item">Adresse du destinataire :
+								{{ message.email }}</li>
+						</ul>
 					</div>
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item">Nom du destinataire : {{ message.firstname }} {{ message.lastname }}</li>
-						<li class="list-group-item">Adresse du destinataire : {{ message.email }}</li>
-					</ul>
 				</div>
-			</div>
-		
-	{% endfor %}
-    </div>
-    </div>
-	<a href="{{ path('message_new') }}">Create new</a>
+
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}

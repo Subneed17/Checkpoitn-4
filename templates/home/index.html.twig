@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
+{% block title %}SPA
 {% endblock %}
 
 {% block body %}
@@ -12,9 +12,12 @@
 		<div class="title-on-picture">
 			<h1>Notre refuge recueille 250 animaux chaques années</h1>
 		</div>
-		<div>
-		<h2>Venez découvrir le refuge</h2>
-		<p><span>Les nombreux animaux que nous recueillons sont souvent victimes de maltraitances, d'abandons et certains restent avec nous jusq'au bout..</span><br><span> Serait-ce trop vous demander de verser quelques centimes de temps en temps, pour aider ces petites bêtes ?</span><br><span>Nous avons encore mieux, venez visiter la SPA de Saintes et pourquoi pas, adopter nos petits anges</p>
+		<div class="mt-3 mb-3">
+			<h2>Venez découvrir le refuge</h2>
+			<p>
+				<span>Les nombreux animaux que nous recueillons sont souvent victimes de maltraitances, d'abandons et certains restent avec nous jusq'au bout..</span><br><span>
+					Serait-ce trop vous demander de verser quelques centimes de temps en temps, pour aider ces petites bêtes ?</span><br><span>Nous avons encore mieux, venez visiter la SPA de Saintes et pourquoi pas, adopter nos petits anges</p>
+			</p>
 		</div>
 		<div class="row div-three-picture">
 			<div class="pt-3 histoire-du-refuge">
@@ -30,10 +33,24 @@
 			</div>
 		</div>
 	</div>
-
-	{# <div class="container-fluid">
-									<div class="first-div text-center pt-2 pb-4">
-										<img class="w-75" src="{{ asset('build/images/recherche-humain.png') }}" alt="">
-									</div>
-								</div>  #}
+	<div>
+		<h4></h4>
+	</div>
+	<div class="container">
+		<div class="row mb-5 ">
+		<div class="col-sm-5 text-center localization">
+			<iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11141.907384743867!2d-0.6899307569412884!3d45.72153109631565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480102ca79ec5a17%3A0xb8c0c1f3df61905c!2sSoci%C3%A9t%C3%A9%20Protectrice%20des%20Animaux%20SPA!5e0!3m2!1sfr!2sfr!4v1627029929029!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			</div>
+			<div class="col-sm-7">
+			<h5>Combien coûte une adoption ? </h5>
+<p>Le prix d'un chien qui part. à l’adoption est variable car établi en fonction de plusieurs critères. Le chien est accompagné de son carnet vétérinaire, faisant preuve de ses vaccinations..</p>
+<p>Pour un chat, l’adoption est également d'un prix variable. L’animal est vacciné et identifié. De plus il est muni d’un certificat de test négatif à la leucose. Si c’est un mâle, le chat est castré.</p><br>
+<h5>Notre refuge joue le rôle de fourrière : </h5>	
+<p>Les communes selon la loi devraient disposer chacune d’une fourrière individuelle pour accueillir les animaux trouvés. Ceux ci doivent être gardés pendant un délai légal de huit jours.
+360 Communes du département ont fait le choix de confier ce rôle de fourrière à notre S.P.A., selon des conventions annuelles. Dans nos structures, les animaux trouvés doivent être gardés pendant le délai légal, au cours duquel il sera effectué une recherche des propriétaires.
+S’ils ne sont pas réclamés, les animaux deviennent la propriété de notre S.P.A. et peuvent être proposés à l’adoption, après identification.
+Si vous trouvez un chien ou un chat errant, signalez-le à votre Mairie, ou directement à notre S.P.A.</p>		
+</div>
+		</div>
+	</div>
 {% endblock %}

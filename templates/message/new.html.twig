@@ -3,9 +3,12 @@
 {% block title %}New Message{% endblock %}
 
 {% block body %}
-    <h1>Create new Message</h1>
-
+<div class="container">
+    <div class="w-75 text-center message-title-info">
+    <h4>Si vous souhaitez avoir une réponse dans l'immédiat, veuillez nous contacter par téléphone au 0543164592</h4>
+    </div>
+</div>
     {{ include('message/_form.html.twig') }}
-
     <a href="{{ path('message_index') }}">back to list</a>
+
 {% endblock %}

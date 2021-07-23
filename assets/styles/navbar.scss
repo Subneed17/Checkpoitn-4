@@ -4,11 +4,21 @@
 .logo-site-web {
     min-width: 40%;
     .logo-spa-saintes {
-        width: 60%;
+        width: 70%;
     }
 }
 
 .nav-dropdown-account {
-    width: 20%;
     justify-content: space-around;
+}
+
+.btn.btn-secondary.dropdown-toggle {
+    background-color: orangered;
+}
+
+@media screen and(max-width:567px) {
+    .btn.btn-secondary.dropdown-toggle {
+        
+        font-size: 0.7rem;
+    }
 }

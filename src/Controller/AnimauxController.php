@@ -41,7 +41,7 @@ class AnimauxController extends AbstractController
 
             return $this->redirectToRoute('animaux_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        
         return $this->render('animaux/new.html.twig', [
             'animaux' => $animaux,
             'form' => $form->createView(),

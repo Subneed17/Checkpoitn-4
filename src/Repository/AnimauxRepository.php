@@ -19,22 +19,17 @@ class AnimauxRepository extends ServiceEntityRepository
         parent::__construct($registry, Animaux::class);
     }
 
-    // /**
-    //  * @return Animaux[] Returns an array of Animaux objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findByCategory($value)
     {
         return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
+            ->andWhere('c.name = :val')
+            ->join('a.category', 'c')
             ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Animaux

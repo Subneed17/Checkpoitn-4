@@ -26,7 +26,7 @@
 @media screen and(max-width:576px) {
     .title-on-picture {
         position: absolute;
-    top: 12%;
+    top: 2%;
     right: 9%;
     width: 48%;
     }
@@ -51,7 +51,7 @@ h1 {
     }
         @media screen and(max-width:576px) {
             h1 {
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                 }
             }
 .histoire-du-refuge {
@@ -82,6 +82,11 @@ h1 {
     clip-path: ellipse(45% 50%);
     width: 75%;
     height: 100%;
+    opacity: 0.8;
+}
+.circle-picture-home:hover {
+    transform: scale(1.2);
+    opacity: 1;
 }
 @media screen and(max-width:576px) {
     .circle-picture-home {
@@ -89,3 +94,11 @@ h1 {
         margin: auto;
     }
 }
+
+@media screen and(max-width:576px){
+.localization {
+    width: 75%;
+    margin: auto;
+}
+}
+
