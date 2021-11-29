@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DonateController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="title-donation p-4 text-center">
+		<h2>Vous pouvez nous aider dans beaucoup de domaines</h2>
+		<div class="long-trait-donate"></div>
+	</div>
+
+	<div class="container-fluid p-3">
+		<div class="two-donations p-4">
+			<div class="first-block col-sm-5 p-2 text-center">
+				<h3>Vos "Ecuelles du Coeur"</h3>
+				<br>
+				<p>400 animaux sont présents au Refuge chaque jour.Cela fait beaucoup d’estomacs à nourrir. L’alimentation quotidienne est abondante et variée.</p>
+				<p class="highlight-text-donations">
+					Mais
+				</p>
+				<p>Il y a les malades, les convalescents, les fragiles…Les bébés, les plus vieux…Ceux là ont besoin de préparations spéciales.</p>
+				<p>Pour eux les « ÉCUELLES DU CŒUR »</p>
+				<div class="d-flex">
+					<div class="ecuelle-du-coeur col-sm-6"><img src="{{ asset('build/images/chien-croquettes.jpg') }}"></div>
+					<div class="col-sm-6" style="align-self:center">
+						<div>
+							<p>Petits plats cuisinés,</p>
+						</div>
+						<div>
+							<p>croquettes spécifiques,</p>
+						</div>
+						<div>
+							<p>Aliments pour chiots et chatons,</p>
+						</div>
+						<div>
+							<p>Gâteries gourmandes…</p>
+						</div>
+					</div>
+				</div><br>
+				<p>Chacune vous coûtera 3 euros.</p>
+				<p>MERCI POUR VOS « ÉCUELLES DU CŒUR »</p>
+				<a onclick="console.log('bonsoir');" class="frame" href=""> Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+				<script> alert("coucou"); </script>
+{# {{ asset('build/images/formulaire-adhesion.png') }} #}
+			</div>
+			<div class="second-block col-sm-5 p-2 text-center">
+				<h3>Pour nos Séniors, Offrez une "Carte Vermeil"</h3><br>
+				<div class="d-flex">
+					<div class="carte-vermeil col-sm-6">
+						<img src="{{ asset('build/images/chein-age.jpg') }}">
+					</div>
+					<div class="col-sm-6" style="align-self:center">
+						<div>
+							<p>LES CHIENS</p>
+						</div>
+						<div>
+							<p>ET LES CHATS ÂGÉS</p>
+						</div>
+						<div>
+							<p>SONT BEAUCOUP</p>
+						</div>
+						<div>
+							<p>ABANDONNÉS.
+							</p>
+						</div>
+					</div>
+				</div><br>
+				<p>CERTAINS SONT AU REFUGE DEPUIS PLUSIEURS ANNEES.</p>
+				<p>Le refuge est leur maison de retraite. ILS NE LE QUITTERONT PLUS !</p>
+				<p>Ces longs séjours coûtent bien plus cher !</p>
+				<p>VOUS POUVEZ NOUS AIDER en offrant à nos « SÉNIORS »</p>
+				<p>Leur "CARTE VERMEIL" pour 10 euros.</p><br>
+				<p>Merci de nous aider à prendre soin d'eux.</p>
+				<a href="{{ asset('build/images/formulaire-adhesion.png') }}" onclick="print()" id="frame">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+
+			</div>
+		</div>
+
+
+		<div class="two-donations p-4">
+			<div class="third-block col-sm-5 p-2 text-center">
+				<h3>PARTICIPEZ à nos FRAIS VÉTÉRINAIRES</h3>
+				<br>
+				<p>Interventions chirurgicales indispensables, Stérilisation des mâles et des femelles, Séjours en clinique prolongés, Radiographies, écographies, analyses...</p>
+				<div class="d-flex">
+					<div class="frais-veterinaires col-sm-6"><img src="{{ asset('build/images/chien-veto.jpg') }}"></div>
+					<div class="col-sm-6">
+						<img src="{{ asset('build/images/docteur.jpg') }}">
+					</div>
+				</div><br>
+				<p>Chacune vous coûtera 3 euros.</p>
+				<p>MERCI POUR VOS « ÉCUELLES DU CŒUR »</p>
+				<a href="{{ asset('build/images/formulaire-adhesion.png') }}" onclick="print()" id="frame">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+
+			</div>
+			<div class="fourth-block col-sm-5 p-2 text-center">
+				<h3>OFFREZà notre REFUGE "une AIDE pour les TRAVAUX"</h3><br>
+				<p>LE REFUGE A ÉTÉ CONSTRUIT EN 1976. MALGRÉ L'ENTRETIEN PERMANENT DONT IL FAIT L'OBJET, IL NÉCESSITE DE FRÉQUENTES RÉPARATIONS.</p>
+				<div class="d-flex">
+					<div class="carte-vermeil col-sm-6"><img src="{{ asset('build/images/travaux-refuge.png') }}"></div>
+					<div class="col-sm-6" style="align-self:center">
+						<p>Les parois et les murs ont besoin de rénovation. Les clôtures métalliques des parcs et des bois se dégradent régulièrement. Les charpentes des bâtiments sont fragilisées. Les sols cimentés présentent des failles. Les façades nécessitent des ravalements.</p>
+					</div>
+				</div><br>
+								<a href="{{ asset('build/images/formulaire-adhesion.png') }}" onclick="print()" id="frame">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+
+			</div>
+		</div>
+
+		{# <div class="two-donations d-flex p-4">
+							<div class="first-block col-sm-5 p-2">
+								<h3>Vos "Ecuelles du Coeur"</h3>
+								<br>
+								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut magni laboriosam odit placeat provident eligendi ex impedit minus autem iste, optio qui voluptatibus libero. Illum aperiam porro ipsa facere tempora!</p>
+							</div>
+							<div class="second-block col-sm-5 p-2">
+								<h3>Pour nos Séniors, Offrez une "Carte Vermeil"</h3>
+							</div>
+						</div> #}
+
+	</div>
+{% endblock %}
+
+{% block javascript %}
+{{ parent()}}
+{{ encore_entry_script_tags('print') }}
+{% endblock %}

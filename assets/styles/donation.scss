@@ -1,0 +1,67 @@
+.long-trait-donate {
+    width:90%;
+    border:1px solid black;
+    margin: auto; 
+ }
+.two-donations {
+    font-family: cursive;
+    justify-content: space-evenly;
+    margin: auto;
+    display: flex;
+    .first-block {
+        background-color: #00ffe72e;
+        border: 2px solid grey;
+        border-radius: 35px;
+        .highlight-text-donations {
+            background: yellow;
+            width: min-content;
+            margin: auto;
+        }
+    }
+    .second-block {
+        background-color: #ff000030;
+        border: 2px solid grey;
+        border-radius: 35px;
+    }
+
+
+
+    .third-block {
+        background-color: #fbff002e;
+        border: 2px solid grey;
+        border-radius: 35px;
+        .highlight-text-donations {
+            background: yellow;
+            width: min-content;
+            margin: auto;
+        }
+    }
+    .fourth-block {
+        background-color: #e4e7ffcc;
+        border: 2px solid grey;
+        border-radius: 35px;
+    }
+}
+
+@media screen and(max-width: 576px) {
+    .two-donations {
+        display: none;
+        .first-block {
+            margin: auto;
+            width: 80%;
+        }
+    }
+
+}
+
+.ecuelle-du-coeur {
+    img {
+        clip-path: ellipse(45% 50%);
+    }
+}
+
+.carte-vermeil {
+    img {
+        clip-path: ellipse(45% 50%);
+    }
+}
