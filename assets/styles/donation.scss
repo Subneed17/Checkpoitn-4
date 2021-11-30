@@ -4,7 +4,8 @@
     margin: auto; 
  }
 .two-donations {
-    font-family: cursive;
+    font-family: sans-serif;
+    font-size: 1.2rem;
     justify-content: space-evenly;
     margin: auto;
     display: flex;
@@ -43,16 +44,44 @@
     }
 }
 
-@media screen and(max-width: 576px) {
+@media (max-width: 992px) {
     .two-donations {
-        display: none;
-        .first-block {
-            margin: auto;
-            width: 80%;
-        }
+        display: block;
     }
-
 }
+
+@media (max-width: 992px) {
+    .first-block {
+        margin: auto;
+        width: 75%;
+        margin-bottom: 4rem;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .second-block {
+        margin: auto;
+        width: 75%;
+    }
+}
+
+@media (max-width: 992px) {
+    .third-block {
+        margin: auto;
+        width: 75%;
+        margin-bottom: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .fourth-block {
+        margin: auto;
+        width: 75%;
+        margin-bottom: 4rem;
+    }
+}
+
 
 .ecuelle-du-coeur {
     img {
@@ -63,5 +92,33 @@
 .carte-vermeil {
     img {
         clip-path: ellipse(45% 50%);
+    }
+}
+
+.frais-veterinaires {
+    img {
+        clip-path: ellipse(45% 50%);
+        width: 70%;
+    }
+}
+
+.frais-veterinaires-second {
+    img {
+        clip-path: ellipse(45% 50%);
+        width: 70%;
+    }
+}
+
+.travaux-refuge-first {
+    img {
+        clip-path: ellipse(45% 50%);
+        width: 70%;
+    }
+}
+
+.travaux-refuge-second {
+    img {
+        clip-path: ellipse(45% 50%);
+        width: 70%;
     }
 }
