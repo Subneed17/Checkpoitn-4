@@ -19,6 +19,33 @@ class BenevoleRepository extends ServiceEntityRepository
         parent::__construct($registry, Benevole::class);
     }
 
+     /**
+      * @return Benevole[] Returns an array of Benevole objects
+      */
+    public function findAllByDate()
+    {
+        return $this->createQueryBuilder('b')
+            ->orderBy('b.CaptureAt', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //   * @return Benevole[] Returns an array of Benevole objects
+    //   */
+    //   public function findAllYears($years)
+    //   {
+    //       return $this->createQueryBuilder('b')
+    //         ->andWhere('b.CaptureAt = :val')
+    //         ->setParameter('val', $years)
+    //         ->orderBy('b.CaptureAt', 'ASC')
+    //         ->getQuery()
+    //         ->getResult()
+    //       ;
+    //   }
+
+
     // /**
     //  * @return Benevole[] Returns an array of Benevole objects
     //  */

@@ -48,7 +48,7 @@
 
     <a href="{{ path('animaux_index') }}">back to list</a>
 
-    <a href="{{ path('animaux_edit', {'id': animaux.id}) }}">edit</a>
+    <a href="{{ path('animaux_edit', {'slug': animaux.slug}) }}">edit</a>
 
     {{ include('animaux/_delete_form.html.twig') }}
 {% endblock %}

@@ -21,7 +21,7 @@ class BenevoleController extends AbstractController
     public function index(BenevoleRepository $benevoleRepository): Response
     {
         return $this->render('benevole/index.html.twig', [
-            'benevoles' => $benevoleRepository->findAll(),
+            'benevoles' => $benevoleRepository->findAllByDate(),
         ]);
     }
 
@@ -51,10 +51,21 @@ class BenevoleController extends AbstractController
     /**
      * @Route("/{id}", name="benevole_show", methods={"GET"})
      */
-    public function show(Benevole $benevole): Response
+    public function show(Benevole $id, BenevoleRepository $benevoleRepository ): Response
     {
+        $years = $id->getCaptureAt();
+        // $benevoleRepository = new BenevoleRepository();
+        $benevoles = $benevoleRepository->findAll();
+        $benevoleYear = [];
+        foreach($benevoles as $benevole){
+            if( $benevole->getCaptureAt()->format('Y') === $years->format('Y'))
+            {
+                array_push($benevoleYear, $benevole);
+            }
+        }
         return $this->render('benevole/show.html.twig', [
-            'benevole' => $benevole,
+            
+            'benevoles' => $benevoleYear,
         ]);
     }
 

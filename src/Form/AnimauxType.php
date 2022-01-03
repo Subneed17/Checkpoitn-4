@@ -7,8 +7,10 @@ use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+// use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class AnimauxType extends AbstractType
 {
@@ -19,7 +21,6 @@ class AnimauxType extends AbstractType
             ->add('description')
             ->add('age')
             ->add('race')
-            ->add('picture')
             ->add('vaccinate')
             ->add('sterilized')
             ->add('puced')
@@ -35,7 +36,11 @@ class AnimauxType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'name'
             ])
-            //  ->add('messages')
+            ->add('animalFile', VichImageType::class, [
+                'required'      => false,
+                'allow_delete'  => false, // not mandatory, default is true
+                'download_uri' => false, // not mandatory, default is true
+    ])
         ;
     }
 
@@ -46,3 +51,6 @@ class AnimauxType extends AbstractType
         ]);
     }
 }
+
+
+ 

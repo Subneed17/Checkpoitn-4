@@ -6,6 +6,11 @@
     <h1>Edit Animaux</h1>
 
     {{ include('animaux/_form.html.twig', {'button_label': 'Update'}) }}
+    {% for message in app.flashes('success') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
 
     <a href="{{ path('animaux_index') }}"><button>back to list</button></a>
 

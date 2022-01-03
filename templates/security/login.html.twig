@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!
-{% endblock %}
 
 {% block body %}
 	<form method="post">
@@ -24,19 +22,23 @@
 
 		<div class="container">
 			<div class="connexion-page">
-				<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+			<h2 style="font-size:1.2rem">Seuls les membres du refuge à Saintes ont le droit de s'inscrire sur notre site, pour ajouter des annonces, modifier le contenu et/ou approuver les messages des utilisateurs !</h1>
+				<h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
 				<label for="inputEmail">Email</label><br>
-				<input class="email-login" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus><br>
-				<label for="inputPassword">Password</label><br>
-				<input class="password-login" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+				<input class="email-login text-center" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus><br>
+				<br>
+				<label for="inputPassword">Mot De Passe</label><br>
+				<input class="password-login text-center" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
 
 				<div class="w-75 text-end pt-3 bouton-sign-in">
 					<button class="btn" type="submit">
-						Sign in
+						Connexion
 					</button>
 				</div>
+				<br>
+			<p>Vous n'avez pas encore de compte ? Inscrivez-vous dès maintenant en cliquant <a href="{{ path("app_register") }}" > ici</a> !</p>	
 			</div>
 		</div>
 	</form>

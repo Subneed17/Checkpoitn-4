@@ -141,14 +141,14 @@
 					<div class="travaux-refuge-second col-sm-6" style="align-self:center"><img src="{{ asset('build/images/travaux-refuge-spa.png') }}"></div>
 				</div><br>
 				<p>Merci de prendre part à ces dépenses.</p>
-				<a href="{{ asset('build/images/formulaire-adhesion.png') }}" onclick="print()" id="frame">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+				<a onclick="print()" href="{{ asset('build/images/formulaire-adhesion.png') }}" id="frame">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
 
 			</div>
 		</div>
 	</div>
-{% endblock %}
+{# {% endblock %}
 
 {% block javascript %}
 	{{ parent()}}
-	{{ encore_entry_script_tags('print') }}
+	{{ encore_entry_script_tags('print') }} #}
 {% endblock %}

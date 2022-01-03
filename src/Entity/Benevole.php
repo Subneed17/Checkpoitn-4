@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\BenevoleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=BenevoleRepository::class)
+ * @Vich\Uploadable
  */
 class Benevole
 {
@@ -16,12 +19,6 @@ class Benevole
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Album::class)
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $album;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -38,21 +35,21 @@ class Benevole
      */
     private $picture;
 
+    /**
+      * @Vich\UploadableField(mapping="benevole_file", fileNameProperty="picture")
+      * @var File
+      */
+    private $benevoleFile;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $CaptureAt;
+
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAlbum(): ?Album
-    {
-        return $this->album;
-    }
-
-    public function setAlbum(?Album $album): self
-    {
-        $this->album = $album;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -87,6 +84,42 @@ class Benevole
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getCaptureAt(): ?\DateTimeInterface
+    {
+        return $this->CaptureAt;
+    }
+
+    public function setCaptureAt( \DateTimeInterface $CaptureAt): self
+    {
+        $this->CaptureAt = $CaptureAt;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of BenevoleFile
+     *
+     * @return  File
+     */ 
+    public function getBenevoleFile()
+    {
+        return $this->benevoleFile;
+    }
+
+    /**
+     * Set the value of BenevoleFile
+     *
+     * @param  File  $benevoleFile
+     *
+     * @return  self
+     */ 
+    public function setBenevoleFile(File $benevoleFile)
+    {
+        $this->benevoleFile = $benevoleFile;
 
         return $this;
     }

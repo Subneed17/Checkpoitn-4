@@ -4,8 +4,11 @@ namespace App\Form;
 
 use App\Entity\Benevole;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class Benevole1Type extends AbstractType
 {
@@ -14,8 +17,16 @@ class Benevole1Type extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('picture')
-            ->add('album')
+            // ->add('picture')
+            ->add('benevoleFile', VichImageType::class, [
+                'required'      => false,
+                'allow_delete'  => false, // not mandatory, default is true
+                'download_uri' => false, // not mandatory, default is true
+    ])
+
+            ->add('captureAt', DateType::class , [
+                'widget' => 'single_text'
+            ])
         ;
     }
 
@@ -23,6 +34,7 @@ class Benevole1Type extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Benevole::class,
+
         ]);
     }
 }

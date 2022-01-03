@@ -1,0 +1,25 @@
+#benevole1 {
+    border: 2px solid white;
+    padding: 1.5rem;
+    margin: auto;
+    .mb-3 {
+        width: 60%;
+        margin: auto;
+        input {
+            text-align: center;
+        }
+    }
+}
+
+#benevole-show {
+    .card-img-top {
+        height: 70%;
+        img {
+            height: 100%;
+        }
+    }
+    .card-body {
+        height: 30%;
+    }
+}
+

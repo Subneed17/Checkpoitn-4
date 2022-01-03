@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Animaux;
 use App\Form\AnimauxType;
 use App\Repository\AnimauxRepository;
+use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,7 +29,7 @@ class AnimauxController extends AbstractController
     /**
      * @Route("/new", name="animaux_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Slugify $slugify): Response
     {
         $animaux = new Animaux();
         $form = $this->createForm(AnimauxType::class, $animaux);
@@ -37,7 +38,13 @@ class AnimauxController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($animaux);
+            $slug = $slugify->generate($animaux->getName());
+            $animaux->setSlug($slug);
             $entityManager->flush();
+
+            $this->addFlash(
+                'success',
+                'Vous avez ajouté une nouvelle annonce!');
 
             return $this->redirectToRoute('animaux_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -49,7 +56,7 @@ class AnimauxController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="animaux_show", methods={"GET"})
+     * @Route("/show/{slug}", name="animaux_show", methods={"GET"})
      */
     public function show(Animaux $animaux): Response
     {
@@ -59,7 +66,7 @@ class AnimauxController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="animaux_edit", methods={"GET","POST"})
+     * @Route("/edit/{slug}", name="animaux_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Animaux $animaux): Response
     {
@@ -68,6 +75,10 @@ class AnimauxController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash(
+                'success',
+                'Vous avez mis à jour cette annonce!');
 
             return $this->redirectToRoute('animaux_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -79,7 +90,7 @@ class AnimauxController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="animaux_delete", methods={"POST"})
+     * @Route("/delete/{slug}", name="animaux_delete", methods={"POST"})
      */
     public function delete(Request $request, Animaux $animaux): Response
     {
@@ -88,6 +99,9 @@ class AnimauxController extends AbstractController
             $entityManager->remove($animaux);
             $entityManager->flush();
         }
+        $this->addFlash(
+            'success',
+            'Vous avez supprimé cette annonce!');
 
         return $this->redirectToRoute('animaux_index', [], Response::HTTP_SEE_OTHER);
     }

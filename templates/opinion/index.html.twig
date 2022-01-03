@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OpinionController!
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="title-page-opinion mb-5 mt-3">
+	<h2 class="text-center">OPINIONS</h3>
+	
+		<div class="trait-home-don"></div>
+        </div>
+
+
+		<div class="first-opinion">
+			<h4 class="text-center">CRÉATEURS DE MALHEUR</h4>
+			<p>« Créateurs de malheur, ceux qui font semblant de croire, parce que c’est commode, que poules et porcs peuvent être traités comme des objets, entassés dans des cages exiguës, dans la semi obscurité, condamnés à l’immobilité, transformés en zombies incapables, lorsqu’on les extrait de leur boîte cage pour les conduire à l’abattoir, de supporter la lumière du jour ou de se tenir debout sur leur pattes...</p>
+			<div class="d-flex">
+				<div class="col-sm-4">
+					<img class="w-75" src="{{ asset('build/images/malheur.jpg') }}" alt="malheur">
+				</div>
+				<div class="col-sm-8">
+					<p>Créateurs de malheur, ceux qui traitent leurs chiens comme jadis les souverains cruels traitaient certains prisonniers qu’ils condamnaient à une torture à vie : chiens de chasse enfermés pendant onze mois dans un enclos exigu, ou attachés leur vie durant, à une courte chaîne : ces êtres intelligents, sensibles, débordant d’amour voient, autour d’eux, s’écouler , avec ses joies, ses rires, ses jeux, les courses des enfants et des autres animaux...eux, oubliés dans leur coin, forçats enfermés ou enchaînés, sont privés de joie de vivre... Quel crime ont-ils commis. »</p>
+                    <br>
+                    			<p style="color:blue">Anne Marie Hasson, Présidente de la Confédération des S.P.A. France.</p>
+				</div>
+			</div>
+			<br>
+
+		</div>
+
+
+		<div class="second-opinion">
+			<h4 class="text-left">UNE BARBARIE SCANDALEUSE</h4>
+			<div class="d-flex">
+				<div class="col-sm-8">
+					<p>« Mi-mascarade , mi-boucherie, fête du sang et de la cruauté, la corrida reste, pour ceux qui entendent se placer sur le terrain de l’éthique, une barbarie scandaleuse.(...)
+											En tous les cas, avec leur sadisme et leur érotisme, avoués ou honteux, avec leur indiscutable cruauté, les modernes jeux du cirque continuent, indignes pourtant d’un pays qui croit pourtant se prétendre "civilisé" »</p>
+					<br>
+					<p style="color:blue">Théodore Monod, Le Monde.</p>
+				</div>
+				<div class="col-sm-4">
+					<img class="w-75" src="{{ asset('build/images/barbarie.jpg') }}" alt="">
+				</div>
+			</div>
+		</div>
+
+
+		<div class="third-opinion">
+        <h4 class="text-right">CHAQUE JOUR EN FRANCE</h4>
+        <div class="d-flex">
+				<div class="col-sm-4">
+					<img class="w-75" src="{{ asset('build/images/gavage.jpg') }}" alt="">
+				</div>
+				<div class="col-sm-8">
+					<p>« Chaque jour en France, 3 millions d’animaux ( mammifères, oiseaux) sont tués dans les abattoirs. Plusieurs tonnes de poissons (on n’en connait même pas le nombre exact) meurent asphyxiés dans les filets. La corrida « spectacle », la chasse « sport loisir », le gavage des oies et des canard, les élevages industriels, les animaux élevés et (ou) piégés pour leur fourrure, confinés dans les zoos, les combats de coqs, l’exploitation dans les cirques, l’expérimentation animale sont autant de « Grenelle » qu’il faudrait leur consacrer au plus vite. »</p>
+                    <br>
+                    <p style="color:blue">Luce LAPIN, Charlie Habdo.</p>
+				</div>
+			</div>
+        </div>
+
+		<div class="fourth-opinion">
+        <h4 class="text-center">AU REFUGE DE LA S.P.A. DE SAINTES :<span><br>un lieu de complicité avec la vie.</span></h4>
+        <p>Prendre le temps de faire un tour au Bois Rulaud n’est sans doute pas la chose la plus aisée, tant notre monde de consommation superficielle nous impose vitesse et stress plus qu’à l’envie. Pourtant, faire un tour à la S.P.A. DE SAINTES , c’est faire une parenthèse avec ce temps ordinaire. Il n’est pas de lieu plus symbolique de simplicité et de complicité avec la vie. C’est vrai, ceux qui tentent vainement d’aseptiser leur vie émotionnelle par la consommation matérielle, risquent fort de voir leurs propres mensonges s’effondrer.</p>
+        <div class="d-flex">
+				<div class="col-sm-8">
+					<p>Au Bois Rulaud, à ceux qui croquent la vie à pleine dents, le régal des sens sera au rendez-vous. Un chien ou un chat ne ment jamais, et il saura communiquer sa joie de vous voir, sa détresse devant la maladie, son plaisir au contact des caresses, ou du regard que vous portez sur lui. Et, sans doute le plus important, il saura vous montrer sa foi en l’Homme, en dépit des traîtrises et des déceptions qu’il aura pu rencontrer. Ici, la rédemption est une réalité, pour le plus grand bonheur de tous, homme comme animal. Pour tous, aussi, la S.P.A. est synonyme de nouveau départ, de nouvel horizon que l’on vienne s’y promener, sortir un toutou en balades, ou bien même rencontrer le compagnon fidèle qui partagera une partie de notre vie, on en repart toujours plus confiant. Ce Refuge est un espace et un temps étroitement confinés, qui nous inspirent peut être un plus grand respect de nous-même, des autres, et de la nature. Le Bois Rulaud est un petit coin de forêt rempli de vie, qui nous met face à notre humanité.</p>
+                    <br>
+                     <p style="color:blue">Jean Philippe Collet, bénévole, parrain et adoptant.</p>
+				</div>
+				<div class="col-sm-4">
+					<img class="w-75" src="{{ asset('build/images/complice.jpg') }}" alt="">
+				</div>
+			</div>
+           
+       
+        
+        </div>
+
+	</div>
+{% endblock %}

@@ -18,7 +18,7 @@ class CatController extends AbstractController
      * @Route("/", name="cat_index", methods={"GET"})
      */
         return $this->render('cat/index.html.twig', [
-            'cats' => $animauxRepository->findByCategory('Cat'),
+            'cats' => $animauxRepository->findByCategory('Chat'),
         ]);
     }
 }

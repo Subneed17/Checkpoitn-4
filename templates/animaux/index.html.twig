@@ -25,17 +25,23 @@
 
 			<div class="col-sm-6 pb-5">
 				<div class="card w-75 for-margin-card">
-					<img src="{{ animaux.picture }}" class="card-img-top" alt="...">
+					<img src="{{ vich_uploader_asset(animaux) }}" class="card-img-top" alt="...">
 					<div class="card-body">
 						<h5 class="card-title">{{ animaux.name }}</h5>
-						<p class="card-text">Message du destinataire : {{ animaux.description }}
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, beatae. Aliquam minus dolorem illo beatae! Ipsa in esse placeat cupiditate cumque officia aspernatur ea doloribus architecto? Minima nihil expedita omnis.</p>
+						<p class="card-text">{{ animaux.description }}
 					</div>
 					<ul class="list-group list-group-flush">
-						<li class="list-group-item"> {{ animaux.age }} an</li>
+						
+						{% if animaux.age == 1  %}
+						<li class="list-group-item">{{ animaux.age }} an</li>
+						{% else %}
+							<li class="list-group-item">{{ animaux.age }} ans</li>
+						{% endif %}
 						<li class="list-group-item"> {{ animaux.race }}</li>
                         <li class="list-group-item">
-						<a href="{{ path('animaux_edit', {'id': animaux.id}) }}" ><button>Modifier</button></li></a>
+						<a href="{{ path('animaux_edit', {'slug': animaux.slug}) }}" ><button>Modifier</button></a>
+						<a href="{{ path('animaux_show', {'slug': animaux.slug}) }}" ><button>Voir</button></a>
+						</li>
 					</ul>
 				</div>
 			</div>
