@@ -1,8 +1,8 @@
-.navbar.navbar-expand-lg.navbar-light {
+.navbar.navbar-light {
     background: #ffc13fc7;
 }
 .logo-site-web {
-    min-width: 40%;
+    min-width: 55%;
     .logo-spa-saintes {
         width: 80%;
     }
@@ -117,4 +117,45 @@
             transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
             transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
             }
+}
+
+
+
+/** TEST Nouvel navbar **/ 
+
+.offcanvas.offcanvas-end.show {
+    visibility: visible;
+    background-color: rgb(255 193 63 / 99%);
+    font-size: 1.4rem;
+
+    .offcanvas-header {
+        h5 {
+            font-size: 1.7rem;
+        }
+    }
+    .offcanvas-body {
+        font-weight: bold;
+        text-align: center;
+        ul {
+            li {
+                ul {
+                    background-color: transparent;
+                    text-align: center;
+                    border: none;
+                    li {
+                        a {
+                            font-size: 1.2rem;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.trait-navbar {
+    width:50%;
+    border:1px solid rgba(0, 0, 0, 0.699);
+    margin: auto;
 }

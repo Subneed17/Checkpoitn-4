@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Adopter;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -20,6 +21,9 @@ class AdopterType extends AbstractType
                 'allow_delete'  => false, // not mandatory, default is true
                 'download_uri' => false, // not mandatory, default is true
     ])
+            ->add('adoptionDate', DateType::class , [
+                'widget' => 'single_text'
+            ])
         ;
     }
 

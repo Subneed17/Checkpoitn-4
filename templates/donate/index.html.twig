@@ -146,9 +146,13 @@
 			</div>
 		</div>
 	</div>
-{# {% endblock %}
+<script>
 
-{% block javascript %}
-	{{ parent()}}
-	{{ encore_entry_script_tags('print') }} #}
+function print() {
+    let frame = document.getElementById('frame');
+    let form = frame.getAttribute('href');
+	let windown = windown.open(form);
+	windown.window.print();
+}
+</script>
 {% endblock %}

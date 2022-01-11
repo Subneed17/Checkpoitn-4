@@ -54,7 +54,6 @@ class BenevoleController extends AbstractController
     public function show(Benevole $id, BenevoleRepository $benevoleRepository ): Response
     {
         $years = $id->getCaptureAt();
-        // $benevoleRepository = new BenevoleRepository();
         $benevoles = $benevoleRepository->findAll();
         $benevoleYear = [];
         foreach($benevoles as $benevole){

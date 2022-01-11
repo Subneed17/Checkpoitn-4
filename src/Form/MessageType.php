@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Message;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -21,7 +22,12 @@ class MessageType extends AbstractType
             ->add('description', TextareaType::class ,[
                 'attr' => [
                     'rows' => '10']
-            ]);
+            ])
+            // ->add('dateMessage', DateType::class , [
+            //     'widget' => 'single_text'
+            // ])
+
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

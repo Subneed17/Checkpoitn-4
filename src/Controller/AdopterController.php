@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Adopter;
 use App\Form\AdopterType;
 use App\Repository\AdopterRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,6 +51,7 @@ class AdopterController extends AbstractController
     public function new(Request $request): Response
     {
         $adopter = new Adopter();
+        $adopter->setCaptureAt(new DateTime('now'));
         $form = $this->createForm(AdopterType::class, $adopter);
         $form->handleRequest($request);
 

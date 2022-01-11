@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="row" id="benevole-show">
 			{% for benevole in benevoles %}
-				<div class="card col-sm-3">
+				<div class="card col-sm-3 m-4">
 					<div class="card-img-top">
 						<img src="{{ vich_uploader_asset(benevole) }}" class="card-img-top" alt="...">
 					</div>
@@ -50,6 +50,9 @@
 
 	</div>
 
+{% for benevol in benevoles %}
+<a href="{{ path('benevole_edit', {'id': benevol.id }) }}">edit</a>
+{% endfor %}
 
 	<a href="{{ path('benevole_index') }}">back to list</a>
 

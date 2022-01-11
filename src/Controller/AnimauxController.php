@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Animaux;
 use App\Form\AnimauxType;
 use App\Repository\AnimauxRepository;
+
 use App\Service\Slugify;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AnimauxController extends AbstractController
 {
     /**
-     * @Route("/", name="animaux_index", methods={"GET"})
+     * @Route("/", name="animaux_index", methods={"GET"})   
      */
     public function index(AnimauxRepository $animauxRepository): Response
     {

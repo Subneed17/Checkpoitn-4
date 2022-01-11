@@ -1,21 +1,21 @@
 // document.addEventListener('DOMContentLoaded', () => {
-//     const frame = document.getElementsByClassName('.frame');
+//     const frame = document.getElementsByClassName('frame');
 //     frame.forEach(element => {
 //         element.addEventListener('click', (event) => {
 //             event.preventDefault();
-//             console.log('coucou');   
 //         })
 
 //         })
 // });
 
+
+
+
+
+
 // function print() {
-//     console.log('coucou');
-// addEventListener.focus;
-// addEventListener.print;
+//     let frame = document.getElementById('frame');
+//     let form = frame.getAttribute('href');
+//     form.print();
 // }
-function print() {
-    let frame = document.getElementById('frame');
-    frame.contentWindow.focus();
-    frame.contentWindow.print();
-}
+// console.log('coucou');

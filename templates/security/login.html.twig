@@ -5,7 +5,9 @@
 	<form method="post">
 		{% if error %}
 			<div class="alert alert-danger">Votre identifiant ou votre mot passe est incorrect. Veuillez recommencer !</div>
+			{# <p>{{ error.message }}</p> #}
 		{% endif %}
+
 
 		{% if app.user %}
 			<div class="container text-center pt-3">
@@ -22,7 +24,7 @@
 
 		<div class="container">
 			<div class="connexion-page">
-			<h2 style="font-size:1.2rem">Seuls les membres du refuge à Saintes ont le droit de s'inscrire sur notre site, pour ajouter des annonces, modifier le contenu et/ou approuver les messages des utilisateurs !</h1>
+			<h2 style="font-size:1.2rem">Cet espace est dédié aux membres du refuge. Les utilisateurs inconnus ne pourront ni s'inscrire, ni se connecter sur notre site internet ! </h1>
 				<h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
 				<label for="inputEmail">Email</label><br>
 				<input class="email-login text-center" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus><br>
@@ -36,9 +38,12 @@
 					<button class="btn" type="submit">
 						Connexion
 					</button>
+					{# <a href="{{ path('connect_facebook_start') }}">Facebook</a> #}
 				</div>
 				<br>
-			<p>Vous n'avez pas encore de compte ? Inscrivez-vous dès maintenant en cliquant <a href="{{ path("app_register") }}" > ici</a> !</p>	
+				{% if is_granted('ROLE_ADMIN') %}
+			<p>Vous n'avez pas encore de compte ? Inscrivez-vous dès maintenant en cliquant <a href="{{ path("app_register") }}" > ici</a> !</p>
+			{% endif %}	
 			</div>
 		</div>
 	</form>

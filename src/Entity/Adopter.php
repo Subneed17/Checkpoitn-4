@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\AdopterRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
@@ -26,7 +27,7 @@ class Adopter
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=1000)
      */
     private $description;
 
@@ -45,6 +46,16 @@ class Adopter
      * @ORM\Column(type="boolean")
      */
     private $isValid = false;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $captureAt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $adoptionDate;
 
     public function getId(): ?int
     {
@@ -119,6 +130,30 @@ class Adopter
     public function setIsValid(bool $isValid): self
     {
         $this->isValid = $isValid;
+
+        return $this;
+    }
+
+    public function getCaptureAt(): ?\DateTimeInterface
+    {
+        return $this->captureAt;
+    }
+
+    public function setCaptureAt(\DateTimeInterface $captureAt): self
+    {
+        $this->captureAt = $captureAt;
+
+        return $this;
+    }
+
+    public function getAdoptionDate(): ?\DateTimeInterface
+    {
+        return $this->adoptionDate;
+    }
+
+    public function setAdoptionDate(\DateTimeInterface $adoptionDate): self
+    {
+        $this->adoptionDate = $adoptionDate;
 
         return $this;
     }

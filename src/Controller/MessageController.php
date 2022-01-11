@@ -6,6 +6,7 @@ use App\Entity\Animaux;
 use App\Entity\Message;
 use App\Form\MessageType;
 use App\Repository\MessageRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,7 +32,9 @@ class MessageController extends AbstractController
      */
     public function new(Request $request, Animaux $animaux): Response
     {
+        
         $message = new Message();
+        $message->setDateMessage(new DateTime('now'));
         $message->setAnimal($animaux);
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
@@ -43,7 +46,7 @@ class MessageController extends AbstractController
             $entityManager->persist($message);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('accueil', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('message/new.html.twig', [
@@ -96,4 +99,5 @@ class MessageController extends AbstractController
 
         return $this->redirectToRoute('message_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

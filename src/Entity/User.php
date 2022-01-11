@@ -32,9 +32,15 @@ class User implements UserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string",nullable=true)
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $FacebookId;
+
 
     public function getId(): ?int
     {
@@ -60,7 +66,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->email ;
     }
 
     /**
@@ -115,5 +121,17 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getFacebookId(): ?string
+    {
+        return $this->FacebookId;
+    }
+
+    public function setFacebookId(?string $FacebookId): self
+    {
+        $this->FacebookId = $FacebookId;
+
+        return $this;
     }
 }

@@ -14,16 +14,32 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: true
+        facebook:
+            lazy: true
+            pattern: ^/facebook/
+            custom_authenticators:
+                - App\Security\FacebookAuthenticator
         main:
             anonymous: false
             lazy: true
             provider: app_user_provider
-            custom_authenticator: App\Security\LoginFormAuthenticator
+            # form_login: 
+            #     login_path: app_login
+                # check_path: app_login
+            # guard:
+            #     authenticator:
+            #         - App\Security\LoginFormAuthenticator
+            #     authenticators:
+            #         - App\Security\FacebookAuthenticator
+            custom_authenticators: 
+                - App\Security\LoginFormAuthenticator
+            #     - App\Security\FacebookAuthenticator
+
             logout:
                 path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
-
+            
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 

@@ -16,7 +16,8 @@
 				<div class="col-sm-6 pb-5">
 					<div class="card w-75 for-margin-card">
 						<div class="card-body">
-						<img src="" class="card-img-top" alt="...">
+						<p>Le {{ message.dateMessage | date('d/m/Y H:i:s') }}</p>
+						{# <img src="{{ vich_uploader_asset(animaux.pictureFile) }}" class="card-img-top" alt="..."> #}
 							<h5 class="card-title">{{ message.firstname }}</h5>
 							<p class="card-text">Message du destinataire :
 								{{ message.description }}

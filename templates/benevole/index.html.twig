@@ -1,42 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Benevole index
-{% endblock %}
+
 
 {% block body %}
 	<h1>Benevole index</h1>
 	<div class="container">
+
 		<div class="row">
-			
 			{% set toto = [] %}
 			{% for benevol in benevoles %}
 				{% if benevol.captureAt | date('Y') != toto %}
-					<div class="card col-sm-3">
-						<h5>
-							<a href="{{ path('benevole_show', {'id': benevol.id }) }}">{{ benevol.captureAt| date('Y') }}</a>
-						</h5>
+
+					<div class="col-4">
+						<a href="{{ path('benevole_show', {'id': benevol.id }) }}">
+							<div class="card text-white mb-4" id="card-title-benevole">
+								<img src="{{ asset('build/images/refuge-animaux.jpg') }}" class="card-img" alt="...">
+								<div class="card-img-overlay">
+									<h5 class="card-title">{{ benevol.captureAt| date('Y') }}</h5>
+								</div>
+								{% set toto = benevol.captureAt| date('Y') %}
+							</div>
+						</a>
 					</div>
-					{% set toto = benevol.captureAt| date('Y') %}
+
 				{% endif %}
 			{% endfor %}
-			</div>
+		</div>
+
+
+		<a href="{{ path('benevole_new') }}">Create new</a>
 	</div>
-
-
-	{# {% set toto = [] %}
-		{% for benevol in benevoles %}
-			{% if benevol.captureAt | date('Y') != toto %}
-				<a href="{{ path('benevole_show', {'id': benevol.id }) }}">
-					{{ benevol.captureAt| date('Y') }}
-				</a>
-				{% set toto = benevol.captureAt| date('Y') %}
-			{% endif %}
-	
-		{% endfor %} #}
-	{# <pre>
-				        {{ dump(toto) }}
-				    </pre> #}
-
-
-	<a href="{{ path('benevole_new') }}">Create new</a>
 {% endblock %}
