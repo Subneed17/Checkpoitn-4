@@ -33,13 +33,6 @@ class AdopterController extends AbstractController
         } else {
             $adopter = $adopterRepository->findBy(['isValid' => 'true']);
         }
-
-        // if ($_SESSION['roles'] === ["ROLE_ADMIN"]) {
-        //     $adopter = $adopterRepository->findAll();
-        // } else {
-        //     $adopter = $adopterRepository->findBy(['isValid'=> 'true']);
-        // }
-
         return $this->render('adopter/index.html.twig', [
             'adopters' => $adopter,
         ]);
@@ -115,7 +108,7 @@ class AdopterController extends AbstractController
     
 
 
-            /**
+    /**
      * @Route("/actif/{id}", name="adopter_actif", methods={"GET"})
      */
     public function actif(Adopter $adopter): Response
