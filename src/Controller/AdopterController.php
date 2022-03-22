@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Adopter;
 use App\Form\AdopterType;
 use App\Repository\AdopterRepository;
+use App\Service\Slugify;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +42,7 @@ class AdopterController extends AbstractController
     /**
      * @Route("/new", name="adopter_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Slugify $slugify): Response
     {
         $adopter = new Adopter();
         $adopter->setCaptureAt(new DateTime('now'));
@@ -51,6 +52,8 @@ class AdopterController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($adopter);
+            $slug=$slugify->generate($adopter->getName());
+            $adopter->setSlug($slug);
             $entityManager->flush();
 
             return $this->redirectToRoute('adopter', [], Response::HTTP_SEE_OTHER);

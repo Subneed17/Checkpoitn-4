@@ -17,11 +17,10 @@ class Benevole1Type extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            // ->add('picture')
             ->add('benevoleFile', VichImageType::class, [
-                'required'      => false,
-                'allow_delete'  => false, // not mandatory, default is true
-                'download_uri' => false, // not mandatory, default is true
+                'required'      => true,
+                'allow_delete'  => false,
+                'download_uri' => false,
     ])
 
             ->add('captureAt', DateType::class , [

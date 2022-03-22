@@ -28,7 +28,7 @@ class AnimauxController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="animaux_new", methods={"GET","POST"})
+     * @Route("/new/", name="animaux_new", methods={"GET","POST"})
      */
     public function new(Request $request, Slugify $slugify): Response
     {
@@ -106,4 +106,5 @@ class AnimauxController extends AbstractController
 
         return $this->redirectToRoute('animaux_index', [], Response::HTTP_SEE_OTHER);
     }
+    
 }

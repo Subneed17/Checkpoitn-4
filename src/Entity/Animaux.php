@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=AnimauxRepository::class)
+ * @ORM\Table(name="Animals")
  * @Vich\Uploadable
  */
 class Animaux

@@ -5,12 +5,13 @@
 {% block body %}
 	{# <h1>Benevole index</h1> #}
 	<div class="container">
-
+<div class="page-benevole text-center">
+			<h2>Découvrez nos albums </h2>
+		</div>
 		<div class="row">
-			{% set toto = [] %}
+			{% set albums = [] %}
 			{% for benevol in benevoles %}
-				{% if benevol.captureAt | date('Y') != toto %}
-
+				{% if benevol.captureAt | date('Y') != albums %}
 					<div class="col-4">
 						<a href="{{ path('benevole_show', {'id': benevol.id }) }}">
 							<div class="card text-white mb-4" id="card-title-benevole">
@@ -18,7 +19,7 @@
 								<div class="card-img-overlay">
 									<h5 class="card-title">{{ benevol.captureAt| date('Y') }}</h5>
 								</div>
-								{% set toto = benevol.captureAt| date('Y') %}
+								{% set albums = benevol.captureAt| date('Y') %}
 							</div>
 						</a>
 					</div>
@@ -26,7 +27,8 @@
 			{% endfor %}
 		</div>
 
-
-		<a href="{{ path('benevole_new') }}">Create new</a>
+<div class="bouton-sign-in">
+		<a href="{{ path('benevole_new') }}"><button class="btn">Create new</button></a>
+		</div>
 	</div>
 {% endblock %}

@@ -4,46 +4,12 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Adopter index</h1>
-	{# <pre>
-			    {{ dump(session) }}
-			</pre> #}
-	{# <table class="table">
-				<thead>
-					<tr>
-						<th>Id</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>Picture</th>
-						<th>actions</th>
-						{% if is_granted('ROLE_ADMIN') %}
-							<th>activer</th>
-						{% endif %}
-					</tr>
-				</thead>
-				<tbody>
-					{% for adopter in adopters %}
-						<tr>
-							<td>{{ adopter.id }}</td>
-							<td>{{ adopter.name }}</td>
-							<td>{{ adopter.description }}</td>
-							<td><img src="{{ vich_uploader_asset(adopter) }}"></td>
-							<td>
-								<a href="{{ path('adopter_show', {'id': adopter.id}) }}">show</a>
-								<a href="{{ path('adopter_edit', {'id': adopter.id}) }}">edit</a>
-							</td>
-							{% if is_granted('ROLE_ADMIN') %}
-		                    <td><a id="activate-adopter" href="{{ path('adopter_actif', {'id': adopter.id}) }}">{% if adopter.isValid == 1 %} désactiver {% else %} activer {% endif %}</a></td>
-		                    {% endif %}
-							</tr>
-						{% else %}
-							<tr>
-								<td colspan="5">no records found</td>
-							</tr>
-						{% endfor %}
-					</tbody>
-				</tbody>
-			</table> #}
+	<div class="container">
+		<div class="page-adopter text-center">
+			<h2>Découvrez les messages des adoptants
+			</h2>
+		</div>
+	</div>
 
 
 	<div class="container">
@@ -54,67 +20,43 @@
 					{{ adopter.captureAt | date('d/m/Y') }}
 					:</h5>
 				<div class="adopter-card">
-					<div class="col-sm-3">
-						<img src="{{ vich_uploader_asset(adopter) }}">
+					<div class="col-sm-3 m-auto">
+
+						<img src="{{ vich_uploader_asset(adopter) }}" style="max-height: 15rem">
+
 					</div>
-					<div class="col-sm-7">
-						<p>{{ adopter.description }}</p>
-						<p>Date d'adoption:
+
+					<div class="col-sm-7 p-4">
+						<p style="height: 80%">{{ adopter.description }}</p>
+						<p style="height: 20%">Date d'adoption:
 							{{ adopter.adoptionDate | date('d/m/Y') }}</p>
 					</div>
-					<div class="col-sm-2">
+					<div class="col-sm-2" style="text-align: end">
 						{% if is_granted('ROLE_ADMIN') %}
-							<button>
-								<a style="text-decoration:none" id="activate-adopter" href="{{ path('adopter_actif', {'id': adopter.id}) }}">
-									{% if adopter.isValid == 1 %}
-										Désactiver
-									{% else %}
-										Activer
-									{% endif %}
+							<div class="bouton-sign-in">
+								<a id="activate-adopter" href="{{ path('adopter_actif', {'id': adopter.id}) }}">
+									<button class="btn">
+										{% if adopter.isValid == true %}
+											Désactiver
+										{% else %}
+											Activer
+										{% endif %}
+									</button>
 								</a>
 							</button>
+							</div>
 						{% else %}
 							<button href="{{ path('adopter_show', {'id': adopter.id}) }}">Voir</button>
 						{% endif %}
 					</div>
 				</div>
-				{% if is_granted('ROLE_ADMIN') %}
-					<div class="text-end">
-						<button>
-							<a style="text-decoration:none" href="{{ path('adopter_show', {'id': adopter.id}) }}">Voir</a>
-						</button>
-						<button>
-							<a style="text-decoration:none" href="{{ path('adopter_edit', {'id': adopter.id}) }}">Modifier</a>
-						</button>
-					</div>
-				{% endif %}
 			{% endfor %}
 
 		</div>
+		<div class="bouton-sign-in">
+			<a href="{{ path('adopter_new') }}">
+				<button class="btn">Laisser un message</button>
+			</a>
+		</div>
 	</div>
-
-	<a href="{{ path('adopter_new') }}">Create new</a>
-
-	{# <script>document.querySelector("#activate-adopter").addEventListener('click', addTolist);
-		
-		function addToList(event) {
-		
-		    event.preventDefault();
-		
-		    // Get the link object you click in the DOM
-		    let watchlistLink = event.currentTarget;
-		    let link = watchlistLink.href;
-		    // Send an HTTP request with fetch to the URI defined in the href
-		    fetch(link)
-		    // Extract the JSON from the response
-		        .then(res => res.json())
-		    // Then update the icon
-		        .then(function(res) {
-		            if (res.isInWatchlist) {
-		                watchlistLink.innerText = 'activate'
-		            } else {
-		                watchlistLink.innerText = 'désactivate'
-		            }
-		        });
-		}</script> #}
 {% endblock %}

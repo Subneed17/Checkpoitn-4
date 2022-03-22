@@ -17,7 +17,7 @@
 					<div class="card w-75 for-margin-card">
 						<div class="card-body">
 						<p>Le {{ message.dateMessage | date('d/m/Y H:i:s') }}</p>
-						{# <img src="{{ vich_uploader_asset(animaux.pictureFile) }}" class="card-img-top" alt="..."> #}
+					
 							<h5 class="card-title">{{ message.firstname }}</h5>
 							<p class="card-text">Message du destinataire :
 								{{ message.description }}
@@ -30,10 +30,41 @@
 							<li class="list-group-item">Adresse du destinataire :
 								{{ message.email }}</li>
 						</ul>
+						<ul>
+
+						<p>{{ message.animal.name }}</p>
+
+						</ul>
 						<a href="{{ path('message_delete', {'id': message.id}) }}"><button>supprimer</button></a>
+						
+						
 					</div>
 				</div>
 			{% endfor %}
 		</div>
 	</div>
+
+
+{# 
+	{% for message in messages %}
+		<div class="card">
+			<div class="card-header">
+			Message pour {{ message.animal.name }}
+				le 
+				{{ message.dateMessage | date('d/m/Y H:i:s') }}
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">{{ message.firstname }}
+					{{ message.lastname }}</h5>
+				<p class="card-text">
+					{{ message.description }}
+				</p>
+				<p>Adresse Mail :
+					<a href="mailto:{{ message.email }}">{{ message.email }}</a>
+				</p>
+			</div>
+		</div>
+	{% endfor %} #}
+
+	
 {% endblock %}

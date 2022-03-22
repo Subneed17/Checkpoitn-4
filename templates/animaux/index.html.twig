@@ -21,7 +21,7 @@
 				<div class="col-sm-6 pb-5">
 					<div class="card w-75 for-margin-card">
 						<img src="{{ vich_uploader_asset(animaux) }}" class="card-img-top" alt="...">
-						<div class="card-body">
+						<div class="card-body" style="max-height: 15rem">
 							<h5 class="card-title">{{ animaux.name }}</h5>
 							<p class="card-text">{{ animaux.description }}</p>
 						</div>
@@ -45,14 +45,12 @@
 										<a style="text-decoration: none" href="{{ path('animaux_edit', {'slug': animaux.slug}) }}">
 											<button>Modifier</button>
 										</a>
-																		<a style="text-decoration: none" href="{{ path('animaux_show', {'slug': animaux.slug}) }}">
+																		{# <a style="text-decoration: none" href="{{ path('animaux_show', {'slug': animaux.slug}) }}">
 										<button>Voir</button>
-									</a>
+									</a> #}
 									{% else %}
 										
-									<a style="text-decoration: none" href="{{ path('animaux_show', {'slug': animaux.slug}) }}">
-										<button>Voir</button>
-									</a>
+
 										<a style="text-decoration: none" href="{{ path("message_new", {'id': animaux.id}) }}">
 										<button>Contactez</button>
 									</a>

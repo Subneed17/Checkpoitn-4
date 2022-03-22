@@ -141,18 +141,17 @@
 					<div class="travaux-refuge-second col-sm-6" style="align-self:center"><img src="{{ asset('build/images/travaux-refuge-spa.png') }}"></div>
 				</div><br>
 				<p>Merci de prendre part à ces dépenses.</p>
-				<a onclick="print()" href="{{ asset('build/images/formulaire-adhesion.png') }}" id="frame">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+				<button onclick="window.print({{ path("donate_formulaire") }})" href="{{ path("donate_formulaire") }}">Try it</button>
+				<a href="{{ asset('build/images/formulaire-adhesion.png') }}">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+				<button><a href="{{ path("donate_formulaire") }} ">zadazdazzad</a></button>
 
 			</div>
 		</div>
 	</div>
-<script>
 
-function print() {
-    let frame = document.getElementById('frame');
-    let form = frame.getAttribute('href');
-	let windown = windown.open(form);
-	windown.window.print();
-}
-</script>
+<div class="pdf-image">
+<h6>Le formulaire à imprimer vous permettra de préciser votre choix.</h6>
+	<img class="w-50 m-auto" src="{{ asset('build/images/formulaire-adhesion.png') }}" alt="">
+</div>
+
 {% endblock %}

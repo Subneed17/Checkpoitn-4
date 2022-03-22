@@ -22,12 +22,7 @@ class MessageType extends AbstractType
             ->add('description', TextareaType::class ,[
                 'attr' => [
                     'rows' => '10']
-            ])
-            // ->add('dateMessage', DateType::class , [
-            //     'widget' => 'single_text'
-            // ])
-
-            ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

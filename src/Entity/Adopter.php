@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\AdopterRepository;
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
+
 
 /**
  * @ORM\Entity(repositoryClass=AdopterRepository::class)
@@ -38,6 +40,12 @@ class Adopter
 
     /**
       * @Vich\UploadableField(mapping="adopters_file", fileNameProperty="picture")
+      * @Assert\File(
+      * maxSize = "1M",
+      * maxSizeMessage = "Le fichier est trop lourd",
+      * mimeTypes = {"image/jpeg", "image/png", "image/webp", "image/jp2"},
+      * mimeTypesMessage = "Upload de fichier PDF JPEG ou JPG valide"
+      * )
       * @var File
       */
     private $adoptersFile;
@@ -56,6 +64,11 @@ class Adopter
      * @ORM\Column(type="datetime")
      */
     private $adoptionDate;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function getId(): ?int
     {
@@ -154,6 +167,18 @@ class Adopter
     public function setAdoptionDate(\DateTimeInterface $adoptionDate): self
     {
         $this->adoptionDate = $adoptionDate;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

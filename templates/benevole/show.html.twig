@@ -4,57 +4,34 @@
 {% endblock %}
 
 {% block body %}
-	{% for benevole in benevoles %}
-
-
-		<h3>Autour de nos employés,
-		NOS  BÉNÉVOLES ({{ benevole.captureAt| date('Y') }}) 
-		APPORTENT AUX ANIMAUX DU REFUGE 
-		TOUTE LEUR TENDRESSE
-		</h3>
-	{% endfor %}
-
 	<div class="container">
-		<div class="row" id="benevole-show">
-			{% for benevole in benevoles %}
-				<div class="card col-sm-3 m-4">
-					<div class="card-img-top">
-						<img src="{{ vich_uploader_asset(benevole) }}" class="card-img-top" alt="...">
-					</div>
-					<div class="card-body">
-						<h5 class="card-title">{{ benevole.name }}</h5>
-						<p class="card-text">{{ benevole.description }}</p>
-					</div>
-				</div>
-			{% endfor %}
-
-			{# <div class="container">
-				<div class="rowd d-flex">
-					{% for benevole in benevoles %}
-						<div class="img-name-benevole col-sm-3">
-							<div class="img-benevole">
-								<img src="{{ vich_uploader_asset(benevole) }}" class="card-img-top" alt="...">
-							</div>
-							<div class="name-benevole">
-								<p>{{ benevole.name }},
-									{{ benevole.description }}
-								</p>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-			</div> #}
-
-
+		<div class="page-benevole text-center">
+			<h2>Découvrez les bénévoles du refuge
+			</h2>
 		</div>
-
+		<div class="d-flex">
+			<div class="row" style="justify-content: center">
+				{% for benevole in benevoles %}
+					<div class="card-benevole-show col-sm-3 m-4 p-0">
+						<img src="{{ vich_uploader_asset(benevole) }}" class="card-img-top" alt="benevole-img">
+						<div class="card-body mt-3">
+							<h5 class="card-title">{{ benevole.name }}</h5>
+							<p class="card-text">{{ benevole.description }}</p>
+							{% if is_granted('ROLE_ADMIN') %}
+								<div class="bouton-sign-in">
+									<a style="text-decoration: none" href="{{ path('benevole_edit', {'id': benevole.id }) }}">
+										<button class="btn">Modifier</button>
+									</a>
+								</div>
+							{% endif %}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+<div class="bouton-sign-in">
+	<a href="{{ path('benevole_index') }}"><button class="btn">Retour aux albums</button></a>
+</div>
 	</div>
-
-{% for benevol in benevoles %}
-<a href="{{ path('benevole_edit', {'id': benevol.id }) }}">edit</a>
-{% endfor %}
-
-	<a href="{{ path('benevole_index') }}">back to list</a>
-
 
 {% endblock %}

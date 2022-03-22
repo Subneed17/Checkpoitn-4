@@ -9,6 +9,13 @@
 // });
 
 
+// let img = document.createElement("img");
+// img.src = "{{ asset('build/images/formulaire-adhesion.png') }}";
+// img.setAttribute("style", "margin-top: 80px;");
+
+// let div = document.getElementById("x");
+// div.appendChild(img);
+// div.setAttribute("style", "text-align:center");
 
 
 
@@ -19,3 +26,18 @@
 //     form.print();
 // }
 // console.log('coucou');
+
+
+// function myFunction() {
+//   let x = document.createElement("IMG");
+//   x.setAttribute("build/images/", "formulaire-adhesion.png");
+//   x.setAttribute("width", "304");
+//   x.setAttribute("height", "228");
+//   x.setAttribute("alt", "The Pulpit Rock");
+//   document.body.appendChild(x);
+// }
+function print() {
+    let frame = document.getElementById('frame');
+    // frame.contentWindow.focus();
+    frame.contentWindow.print();
+}

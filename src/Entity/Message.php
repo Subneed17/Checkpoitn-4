@@ -50,6 +50,11 @@ class Message
      */
     private $dateMessage;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->animaux = new ArrayCollection();
@@ -129,6 +134,18 @@ class Message
     public function setDateMessage(\DateTimeInterface $dateMessage): self
     {
         $this->dateMessage = $dateMessage;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
