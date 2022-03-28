@@ -12,6 +12,8 @@
         "doctrine/doctrine-bundle": "^2.4",
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.9",
+        "knpuniversity/oauth2-client-bundle": "^2.9",
+        "league/oauth2-facebook": "^2.0",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.2.*",
@@ -45,6 +47,7 @@
         "vich/uploader-bundle": "^1.18"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "^5.2",
         "symfony/css-selector": "^5.2",

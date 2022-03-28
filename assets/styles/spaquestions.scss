@@ -1,0 +1,27 @@
+
+
+.container {
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    .spa-questions {
+        background-color: rgba(128, 128, 128, 0.575);
+        width: 65%;
+        padding: 2rem;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+.accordion {
+    width: 70%;
+    .accordion-item {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid gray;
+        .accordion-button {
+            background-color: rgb(129 129 129 / 23%);
+            font-weight: 600;
+        }
+    }
+}
+

@@ -4,44 +4,71 @@
 {% endblock %}
 
 {% block body %}
-<div class="animaux-page">
-	<h1 class="text-center mt-3 mb-2 p-3">La liste complète de nos invité(e)s</h1>
-    </div>
+	<div class="animaux-page">
+		<h1 class="text-center mt-3 mb-2 p-3">La liste complète de nos invité(e)s</h1>
+	</div>
 	<div class="container">
 		<div class="w-75 text-center img-couverture-animaux pb-5" style="margin:auto">
-		<img class="w-100" src="{{ asset('build/images/refuge-animaux.jpg') }}" alt="">
+			<img class="w-100" src="{{ asset('build/images/refuge-animaux.jpg') }}" alt="">
 		</div>
 	</div>
 
 
+	<div class="container">
+		<div class="row list-message-admin d-flex p-2 text-center" style="text-align:webkit-center">
+			{% for animaux in animauxes %}
 
-		
+				<div class="col-sm-6 pb-5">
+					<div class="card w-75 for-margin-card">
+						<img src="{{ vich_uploader_asset(animaux) }}" class="card-img-top" alt="...">
+						<div class="card-body" style="max-height: 15rem">
+							<h5 class="card-title">{{ animaux.name }}</h5>
+							<p class="card-text">{{ animaux.description }}</p>
+						</div>
+						<ul class="list-group list-group-flush">
 
+							{% if animaux.age == 1  %}
+								<li class="list-group-item">{{ animaux.age }}
+									an</li>
+							{% else %}
+								<li class="list-group-item">{{ animaux.age }}
+									ans</li>
+							{% endif %}
+							<li class="list-group-item">
+								{{ animaux.race }}</li>
+							<li class="list-group-item">
 
+								<div class="bouton-sign-in">
 
-    <div class="container">
-            <div class="row list-message-admin d-flex p-2 text-center" style="text-align:webkit-center">
-	{% for animaux in animauxes %}
+									{% if is_granted('ROLE_ADMIN') %}
 
-			<div class="col-sm-6 pb-5">
-				<div class="card w-75 for-margin-card">
-					<img src="{{ animaux.picture }}" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">{{ animaux.name }}</h5>
-						<p class="card-text">Message du destinataire : {{ animaux.description }}
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, beatae. Aliquam minus dolorem illo beatae! Ipsa in esse placeat cupiditate cumque officia aspernatur ea doloribus architecto? Minima nihil expedita omnis.</p>
+										<a style="text-decoration: none" href="{{ path('animaux_edit', {'slug': animaux.slug}) }}">
+											<button>Modifier</button>
+										</a>
+																		{# <a style="text-decoration: none" href="{{ path('animaux_show', {'slug': animaux.slug}) }}">
+										<button>Voir</button>
+									</a> #}
+									{% else %}
+										
+
+										<a style="text-decoration: none" href="{{ path("message_new", {'id': animaux.id}) }}">
+										<button>Contactez</button>
+									</a>
+									{% endif %}
+								</div>
+							</li>
+						</ul>
 					</div>
-					<ul class="list-group list-group-flush">
-						<li class="list-group-item"> {{ animaux.age }} an</li>
-						<li class="list-group-item"> {{ animaux.race }}</li>
-                        <li class="list-group-item">
-						<a href="{{ path('animaux_edit', {'id': animaux.id}) }}" ><button>Modifier</button></li></a>
-					</ul>
 				</div>
-			</div>
-		
-	{% endfor %}
-    </div>
-    <a href="{{ path('animaux_new') }}"><button class="w-25 mb-5">Create new</button></a>
-    </div>
-	{% endblock %}
+
+			{% endfor %}
+		</div>
+		{% if is_granted('ROLE_ADMIN') %}
+		<div class="bouton-sign-in">
+			<a href="{{ path('animaux_new') }}">
+				<button class="btn">Nouvel animal</button>
+			</a>
+		</div>
+		{% endif %}
+	</div>
+{% endblock %}

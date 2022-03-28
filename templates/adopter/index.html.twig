@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adopter index
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="page-adopter text-center">
+			<h2>Découvrez les messages des adoptants
+			</h2>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			{% for adopter in adopters %}
+				<h5>Message de
+					{{ adopter.name }}, le
+					{{ adopter.captureAt | date('d/m/Y') }}
+					:</h5>
+				<div class="adopter-card">
+					<div class="col-sm-3 m-auto">
+
+						<img src="{{ vich_uploader_asset(adopter) }}" style="max-height: 15rem">
+
+					</div>
+
+					<div class="col-sm-7 p-4">
+						<p style="height: 80%">{{ adopter.description }}</p>
+						<p style="height: 20%">Date d'adoption:
+							{{ adopter.adoptionDate | date('d/m/Y') }}</p>
+					</div>
+					<div class="col-sm-2" style="text-align: end">
+						{% if is_granted('ROLE_ADMIN') %}
+							<div class="bouton-sign-in">
+								<a id="activate-adopter" href="{{ path('adopter_actif', {'id': adopter.id}) }}">
+									<button class="btn">
+										{% if adopter.isValid == true %}
+											Désactiver
+										{% else %}
+											Activer
+										{% endif %}
+									</button>
+								</a>
+							</button>
+							</div>
+						{% else %}
+							<button href="{{ path('adopter_show', {'id': adopter.id}) }}">Voir</button>
+						{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+
+		</div>
+		<div class="bouton-sign-in">
+			<a href="{{ path('adopter_new') }}">
+				<button class="btn">Laisser un message</button>
+			</a>
+		</div>
+	</div>
+{% endblock %}

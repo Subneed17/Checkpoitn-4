@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\MessageRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -44,9 +45,20 @@ class Message
      */
     private $animal;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dateMessage;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
     public function __construct()
     {
         $this->animaux = new ArrayCollection();
+        $this->date = new DateTime('now');
     }
 
     public function getId(): ?int
@@ -110,6 +122,30 @@ class Message
     public function setAnimal(?Animaux $animal): self
     {
         $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getDateMessage(): ?\DateTimeInterface
+    {
+        return $this->dateMessage;
+    }
+
+    public function setDateMessage(\DateTimeInterface $dateMessage): self
+    {
+        $this->dateMessage = $dateMessage;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

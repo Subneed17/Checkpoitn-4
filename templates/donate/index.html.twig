@@ -1,0 +1,157 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DonateController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="title-donation p-4 text-center">
+		<h2>Vous pouvez nous aider dans beaucoup de domaines</h2>
+		<div class="long-trait-donate"></div>
+	</div>
+
+	<div class="container-fluid p-3">
+		<div class="two-donations p-4">
+			<div class="first-block col-sm-5 p-2 text-center">
+				<h3>Vos "Ecuelles du Coeur"</h3>
+				<br>
+				<p>400 animaux sont présents au Refuge chaque jour.Cela fait beaucoup d’estomacs à nourrir. L’alimentation quotidienne est abondante et variée.</p>
+				<p class="highlight-text-donations">
+					Mais
+				</p>
+				<p>Il y a les malades, les convalescents, les fragiles…Les bébés, les plus vieux…Ceux là ont besoin de préparations spéciales.</p>
+				<p>Pour eux les « ÉCUELLES DU CŒUR »</p>
+				<div class="d-flex">
+					<div class="ecuelle-du-coeur col-sm-6" style="align-self:center"><img src="{{ asset('build/images/chien-croquettes.jpg') }}"></div>
+					<div class="col-sm-6" style="align-self:center">
+						<div>
+							<p>Petits plats cuisinés,</p>
+						</div>
+						<div>
+							<p>croquettes spécifiques,</p>
+						</div>
+						<div>
+							<p>Aliments pour chiots et chatons,</p>
+						</div>
+						<div>
+							<p>Gâteries gourmandes…</p>
+						</div>
+					</div>
+				</div><br>
+				<p>Chacune vous coûtera 3 euros.</p>
+				<p>MERCI POUR VOS « ÉCUELLES DU CŒUR »</p>
+				<a onclick='print()' class="frame" href="{{ asset('build/images/formulaire-adhesion.png') }}">
+					Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+
+			</div>
+
+
+
+			<div class="second-block col-sm-5 p-2 text-center">
+				<h3>Pour nos Séniors, Offrez une "Carte Vermeil"</h3><br>
+				<div class="d-flex">
+					<div class="carte-vermeil col-sm-6" style="align-self:center">
+						<img src="{{ asset('build/images/chein-age.jpg') }}">
+					</div>
+					<div class="col-sm-6" style="align-self:center">
+						<div>
+							<p>Les chiens</p>
+						</div>
+						<div>
+							<p>et les chats agés</p>
+						</div>
+						<div>
+							<p>sont beaucoup</p>
+						</div>
+						<div>
+							<p>abandonnés.
+							</p>
+						</div>
+					</div>
+				</div><br>
+				<p>Certains sont au refuge depuis plusieurs années!</p>
+				<p>Le refuge est leur maison de retraite. Ils ne le quitteront plus !</p>
+				<p>Ces longs séjours coûtent bien plus cher !</p>
+				<p>Vous pouvez nous aider en offrant à nos « Séniors »</p>
+				<p>leur "Carte Vermeil" pour 10 euros.</p><br>
+				<p>Merci de nous aider à prendre soin d'eux.</p>
+				<a href="{{ asset('build/images/formulaire-adhesion.png') }}" onclick="print()" id="frame">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+
+			</div>
+		</div>
+
+
+
+
+
+		<div class="two-donations p-4">
+			<div class="third-block col-sm-5 p-2 text-center">
+				<h3>PARTICIPEZ à nos FRAIS VÉTÉRINAIRES</h3>
+				<br>
+				<p>Interventions chirurgicales indispensables, Stérilisation des mâles et des femelles, Séjours en clinique prolongés, Radiographies, écographies, analyses...</p>
+				<div class="d-flex">
+					<div class="frais-veterinaires col-sm-6" style="align-self:center">
+						<img src="{{ asset('build/images/veterinaire-spa.png') }}">
+					</div>
+					<div class="frais-veterinaires-second col-sm-6" style="align-self:center">
+						<img src="{{ asset('build/images/veterinaire-second.png') }}">
+					</div>
+				</div><br>
+
+				<div class="d-flex">
+					<div class="frais-veterinaires-soins col-sm-6" style="align-self:center">
+						<h4>Prix moyen des Consultations</h4>
+						<p>Générale : 40€.</p>
+						<p>Comportementale : 85€.</p>
+						<p>Ostéopathie : 60€</p>
+						<p>Acuponcture : 70€.</p>
+					</div>
+					<div class="frais-veterinaires-vaccins col-sm-6" style="align-self:center">
+					<h4>Prix moyen des vaccins</h4>
+						<p>Maladie de Carré : 50€.</p>
+						<p>CHPPILR : 60€.</p>
+						<p>Piroplasmose + Lyme : 90€.</p>
+						<p>Toux du Chenil : 50€.</p>
+					</div>
+				</div><br>
+
+				<p>Ce sont des dépenses onéreuses.</p>
+				<p>Vous pouvez nous aider à les réaliser en participant à ces frais pour 6 euros.</p>
+				<a href="{{ asset('build/images/formulaire-adhesion.png') }}" onclick="print()" id="frame">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+
+			</div>
+
+
+
+
+			<div class="fourth-block col-sm-5 p-2 text-center">
+				<h3>OFFREZà notre REFUGE "une AIDE pour les TRAVAUX"</h3><br>
+				<p>LE REFUGE A ÉTÉ CONSTRUIT EN 1976. MALGRÉ L'ENTRETIEN PERMANENT DONT IL FAIT L'OBJET, IL NÉCESSITE DE FRÉQUENTES RÉPARATIONS.</p>
+				<br>
+				<div class="d-flex">
+					<div class="travaux-refuge-first col-sm-6" style="align-self:center"><img src="{{ asset('build/images/bricoleur-spa.png') }}"></div>
+					<div class="col-sm-6" style="align-self:center">
+						<p>Les parois et les murs ont besoin de rénovation. Les clôtures métalliques des parcs et des bois se dégradent régulièrement. Les charpentes des bâtiments sont fragilisées. Les sols cimentés présentent des failles. Les façades nécessitent des ravalements.</p>
+					</div>
+				</div><br>
+				<div class="d-flex">
+					<div class="col-sm-6" style="align-self:center">
+						<p>Vous pouvez nous accompagner dans nos projets pour le bien être des animaux et des employés en ofrant votre "aide" pour les travaux !</p>
+					</div>
+					<div class="travaux-refuge-second col-sm-6" style="align-self:center"><img src="{{ asset('build/images/travaux-refuge-spa.png') }}"></div>
+				</div><br>
+				<p>Merci de prendre part à ces dépenses.</p>
+				<button onclick="window.print({{ path("donate_formulaire") }})" href="{{ path("donate_formulaire") }}">Try it</button>
+				<a href="{{ asset('build/images/formulaire-adhesion.png') }}">Le formulaire à imprimer vous permettra de préciser votre choix.</a>
+				<button><a href="{{ path("donate_formulaire") }} ">zadazdazzad</a></button>
+
+			</div>
+		</div>
+	</div>
+
+<div class="pdf-image">
+<h6>Le formulaire à imprimer vous permettra de préciser votre choix.</h6>
+	<img class="w-50 m-auto" src="{{ asset('build/images/formulaire-adhesion.png') }}" alt="">
+</div>
+
+{% endblock %}

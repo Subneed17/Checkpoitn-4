@@ -5,7 +5,10 @@ namespace App\Controller;
 use App\Entity\Animaux;
 use App\Entity\Message;
 use App\Form\MessageType;
+use App\Repository\AnimauxRepository;
 use App\Repository\MessageRepository;
+use App\Service\Slugify;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,21 +20,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class MessageController extends AbstractController
 {
     /**
-     * @Route("/", name="message_index", methods={"GET"})
+     * @Route("/index/", name="message_index", methods={"GET"})
      */
-    public function index(MessageRepository $messageRepository): Response
+    public function index(MessageRepository $messageRepository, AnimauxRepository $animauxRepository): Response
     {
         return $this->render('message/index.html.twig', [
             'messages' => $messageRepository->findAll(),
+            // 'animauxes'=> $animauxRepository->findAll(),
         ]);
     }
 
     /**
      * @Route("/new/{id<\d+>}", name="message_new", methods={"GET","POST"})
      */
-    public function new(Request $request, Animaux $animaux): Response
+    public function new(Request $request, Animaux $animaux, Slugify $slugify): Response
     {
+        
         $message = new Message();
+        $message->setDateMessage(new DateTime('now'));
         $message->setAnimal($animaux);
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
@@ -39,11 +45,16 @@ class MessageController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            // $animaux->addMessage($message);
             $entityManager->persist($message);
+            $slug = $slugify->generate($message->getFirstname());
+            $message->setSlug($slug);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+            $this->addFlash(
+                'success',
+                'Votre message a été envoyé aux membres du refuge, veuillez patienter. Nous vous répondrons dans les plus bref délais !');
+
+            return $this->redirectToRoute('accueil', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('message/new.html.twig', [
@@ -96,4 +107,5 @@ class MessageController extends AbstractController
 
         return $this->redirectToRoute('message_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

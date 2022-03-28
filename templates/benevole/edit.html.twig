@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1 style="text-align: center">Modifier ou supprimer un bénévole</h1>
+
+    {{ include('benevole/_form.html.twig', {'button_label': 'Update'}) }}
+{{ include('benevole/_delete_form.html.twig') }}
+    <a href="{{ path('benevole_index') }}">Retrouner à la liste des bénévoles</a>
+
+    
+{% endblock %}

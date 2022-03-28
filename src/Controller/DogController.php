@@ -18,7 +18,7 @@ class DogController extends AbstractController
      * @Route("/", name="dog_index", methods={"GET"})
      */
         return $this->render('dog/index.html.twig', [
-            'dogs' => $animauxRepository->findByCategory('Dog'),
+            'dogs' => $animauxRepository->findByCategory('Chien'),
         ]);
     }
  }

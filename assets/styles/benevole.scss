@@ -1,0 +1,101 @@
+.page-benevole {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    h2 {
+        padding: 1rem;
+        border: 2px solid orange;
+    }
+}
+
+#benevole1 {
+    border: 2px solid white;
+    padding: 1.5rem;
+    margin: auto;
+    .mb-3 {
+        width: 60%;
+        margin: auto;
+        input {
+            text-align: center;
+        }
+    }
+}
+
+#card-title-benevole {
+    position: relative;
+    img {
+        opacity: 0.7;
+    }
+}
+
+.card-img-overlay {
+    width: 75%;
+    height: 60%;
+    margin: auto;
+    text-align: center;
+    top: 25%;
+    bottom: 25%;
+    background: white;
+    border: 1px solid black;
+    opacity: 0.8;
+
+    h5 {
+        font-weight: bold;
+        color: black;
+        font-size: 2rem;
+        position: absolute;
+    top: 27%;
+    left: 35%;
+    }
+}
+
+@media screen and(max-width: 992px) {
+    .card-img-overlay {
+        font-size: 2rem;
+        padding: 0;
+        h5 {
+            position: absolute;
+            top: 20%;
+            left: 27%;
+        }
+    }
+}
+
+#benevole-show {
+    .card-img-top {
+        height: 70%;
+        img {
+            height: 100%;
+        }
+    }
+    .card-body {
+        height: 30%;
+    }
+}
+
+.img-benevole {
+    text-align: center;
+    img {
+    border: 2px solid orange;
+    width: auto;
+    min-height: 70%;
+    }        
+}
+
+    .text-benevole {
+        margin-top: 1rem;
+        border: 1px solid orange;
+        padding: 0.4rem;
+        text-align: center;
+    }
+    
+.card-benevole-show {
+    img {
+        height: 50%;
+        padding: 0.2rem;
+    }
+    .card-body {
+        border: 1px solid orange;
+        text-align: center;
+    }
+}
+

@@ -6,9 +6,13 @@ use App\Repository\AnimauxRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=AnimauxRepository::class)
+ * @ORM\Table(name="Animals")
+ * @Vich\Uploadable
  */
 class Animaux
 {
@@ -85,6 +89,17 @@ class Animaux
      * @ORM\Column(type="boolean")
      */
     private $tatoo;
+
+    /**
+      * @Vich\UploadableField(mapping="animal_file", fileNameProperty="picture")
+      * @var File
+      */
+    private $animalFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -266,6 +281,42 @@ class Animaux
     public function setTatoo(bool $tatoo): self
     {
         $this->tatoo = $tatoo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of animalFile
+     *
+     * @return  File
+     */ 
+    public function getAnimalFile()
+    {
+        return $this->animalFile;
+    }
+
+    /**
+     * Set the value of animalFile
+     *
+     * @param  File  $animalFile
+     *
+     * @return  self
+     */ 
+    public function setAnimalFile(File $animalFile)
+    {
+        $this->animalFile = $animalFile;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

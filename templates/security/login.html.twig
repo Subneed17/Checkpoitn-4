@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!
-{% endblock %}
 
 {% block body %}
 	<form method="post">
 		{% if error %}
-			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			<div class="alert alert-danger">Votre identifiant ou votre mot passe est incorrect. Veuillez recommencer !</div>
+			{# <p>{{ error.message }}</p> #}
 		{% endif %}
+
 
 		{% if app.user %}
 			<div class="container text-center pt-3">
@@ -24,19 +24,27 @@
 
 		<div class="container">
 			<div class="connexion-page">
-				<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+			<h2 style="font-size:1.2rem">Cet espace est dédié aux membres du refuge. Les utilisateurs inconnus ne pourront ni s'inscrire, ni se connecter sur notre site internet ! </h1>
+				<h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
 				<label for="inputEmail">Email</label><br>
-				<input class="email-login" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus><br>
-				<label for="inputPassword">Password</label><br>
-				<input class="password-login" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+				<input class="email-login text-center" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus><br>
+				<br>
+				<label for="inputPassword">Mot De Passe</label><br>
+				<input class="password-login text-center" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
 
 				<div class="w-75 text-end pt-3 bouton-sign-in">
 					<button class="btn" type="submit">
-						Sign in
+						Connexion
 					</button>
+					{# <a href="{{ path('connect_facebook_start') }}">Facebook</a> #}
 				</div>
+				{# <a href="{{ path('app_forgot_password_request') }}"<p>Vous avez oublié votre mot de passe ?</p></a> #}
+				<br>
+				{% if is_granted('ROLE_ADMIN') %}
+			<p>Vous n'avez pas encore de compte ? Inscrivez-vous dès maintenant en cliquant <a href="{{ path("app_register") }}" > ici</a> !</p>
+			{% endif %}	
 			</div>
 		</div>
 	</form>

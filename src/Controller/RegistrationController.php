@@ -4,9 +4,13 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+// use PharIo\Manifest\Email;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
@@ -15,14 +19,14 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, MailerInterface $mailer): Response
     {
+
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $user->setRoles(['ROLE_ADMIN']);
             $user->setPassword(
                 $passwordEncoder->encodePassword(
@@ -34,9 +38,16 @@ class RegistrationController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
+            $email = (new TemplatedEmail())
+            ->from($this->getParameter('mailer_from'))
+            ->to($user->getEmail())
+            ->subject('Vous êtes inscrit sur le site de la S.P.A de Saintes !')
+            ->htmlTemplate('emails/signup.html.twig');
 
-            return $this->redirectToRoute('_profiler_home');
+        $mailer->send($email);
+        $this->addFlash("success", "Votre inscription est terminée. Vous avez reçu un email de confirmation !");
+
+            return $this->redirectToRoute('accueil');
         }
 
         return $this->render('registration/register.html.twig', [

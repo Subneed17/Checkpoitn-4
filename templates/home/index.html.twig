@@ -1,8 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SPA
-{% endblock %}
-
 {% block body %}
 
 	<div class="intro-home text-center">
@@ -10,49 +7,221 @@
 			<img class="w-100" src="{{ asset('build/images/chien-route.jpg') }}" alt="">
 		</div>
 		<div class="title-on-picture">
-			<h1>Notre refuge recueille 250 animaux chaques années</h1>
+			<h1>Notre refuge recueille 1500 animaux chaques années</h1>
 		</div>
-		<div class="mt-3 mb-3">
-			<h2>Venez découvrir le refuge</h2>
-			<p>
-				<span>Les nombreux animaux que nous recueillons sont souvent victimes de maltraitances, d'abandons et certains restent avec nous jusq'au bout..</span><br><span>
-					Serait-ce trop vous demander de verser quelques centimes de temps en temps, pour aider ces petites bêtes ?</span><br><span>Nous avons encore mieux, venez visiter la SPA de Saintes et pourquoi pas, adopter nos petits anges</p>
-			</p>
+		<div class="container-fluid">
+			<div class="come-discover p-3 mt-4 mb-4">
+				<h2>Venez découvrir le refuge</h2>
+				<p>La spa de Saintes a accueilli, en 2020 : 1 689 animaux dont 573 chiens, 859 chats, 7 autres animaux et 250 oiseaux en provenance de 360 communes.</p>
+				<p>
+					<span>Les nombreux animaux que nous recueillons sont souvent victimes de maltraitances, d'abandons et certains restent avec nous jusq'au bout..</span><br><span>
+						Serait-ce trop vous demander de verser quelques centimes de temps en temps, pour aider ces petites bêtes ?</span><br><span>Nous avons encore mieux, venez visiter la SPA de Saintes et pourquoi pas, adopter nos petits anges</p>
+				</p>
+			</div>
+			<h3 class="select-categories">Vous souhaitez accéder à la liste des animaux, sélectionner l'une des catégories afficher :
+			</h3>
 		</div>
-		<div class="row div-three-picture">
-			<div class="pt-3 histoire-du-refuge">
-				<div class="img-refuge-first col-sm-4">
-				<a href="dog">
-					<img class="circle-picture-home" src="{{ asset('build/images/chien-malheureux.jpg') }}" alt=""></a>
+		 <div class="row div-three-picture">
+					<div class="pt-3 histoire-du-refuge">
+						<div class="img-refuge-first col-sm-4 d-block">
+							<a href="dog">
+								<img class="circle-picture-home" src="{{ asset('build/images/chien-malheureux.jpg') }}" alt=""></a>
+						</div>
+						<div class="img-refuge-first col-sm-4">
+							<a href="cat">
+								<img class="circle-picture-home" src="{{ asset('build/images/chat4.jpg') }}" alt=""></a>
+						</div>
+							<div class="img-refuge-first col-sm-4">
+							<a href="others">
+								<img class="circle-picture-home" src="{{ asset('build/images/oiseaux.jpg') }}" alt=""></a>
+						</div>
+					</div>
+				</div>  
+
+		{# <div class="row div-three-picture">
+			<div class="histoire-du-refuge col-sm-4 d-block">
+				<div>
+					<h4>Nos Chiens</h4>
 				</div>
-				<div class="img-refuge-first col-sm-4">
-				<a href="cat">
-					<img class="circle-picture-home" src="{{ asset('build/images/chat4.jpg') }}" alt=""></a>
+				<div class="img-refuge-first">
+					<a href=""><img class="circle-picture-home" src="{{ asset('build/images/chien-malheureux.jpg') }}"></a>
 				</div>
-				<div class="img-refuge-first col-sm-4">
-					<img class="circle-picture-home" src="{{ asset('build/images/oiseaux.jpg') }}" alt="">
+			</div>
+
+			<div class="histoire-du-refuge col-sm-4 d-block">
+				<div>
+					<h4>Nos Chats</h4>
+				</div>
+				<div class="img-refuge-first">
+					<a href=""><img class="circle-picture-home" src="{{ asset('build/images/chat4.jpg') }}"></a>
+				</div>
+			</div>
+
+			<div class="histoire-du-refuge col-sm-4 d-block">
+				<div>
+					<h4>Nos Oiseaux</h4>
+				</div>
+				<div class="img-refuge-first">
+					<a href=""><img class="circle-picture-home" src="{{ asset('build/images/oiseaux.jpg') }}"></a>
+				</div>
+			</div>
+		</div> #}
+
+	</div>
+
+	<h3 class="text-center mb-4">
+		<span class="p-2">
+			<i class="fas fa-arrow-down"></i>
+		</span>Vous pouvez consulter nos différentes pages pour en savoir plus sur le refuge
+		<span class="p-2">
+			<i class="fas fa-arrow-down"></i>
+		</span>
+	</h3>
+
+
+	<div class="container-fluid d-flex mb-5">
+		<div class="col-sm-3">
+			<div class="title-link">
+				<a href="{{ path("knowus") }}" type="button" style="text-decoration:none">
+					<h3>Mieux nous connaître</h3>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="title-link">
+				<a href="{{ path("spaquestion") }}" type="button" style="text-decoration:none">
+					<h3>La SPA en 7 questions</h3>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="title-link">
+				<a href="{{ path("adopter") }}" type="button" style="text-decoration:none">
+					<h3>Courriel des adoptants</h3>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="title-link">
+				<a href="{{ path("opinion") }}" type="button" style="text-decoration:none">
+					<h3>Opinions des membres</h3>
+				</a>
+			</div>
+		</div>
+	</div>
+	<h3 class="text-center mb-4">Vous pouvez aussi lire nos articles ci-dessous
+	</h3>
+	<div class="container p-3" id="articles-home">
+		<div class="row">
+			<div class="col-sm-6">
+				<div id="column-one-first">
+					<h5>Heures d'ouverture au public :
+					</h5>
+					<p>Le Refuge du Bois Rulaud est ouvert tous les jours, samedi et dimanche compris, de 14hoo à 18h00.
+																	Le gardien assure une permanence sur place en dehors des heures d’ouverture.</p><br></div>
+				<div id="column-one-second">
+					<h5>Notre service gardiennage :
+					</h5>
+					<p>Notre service « Gardiennage » permet d’accueillir pour une durée plus ou moins longue, des chiens et des chats. Tous les animaux qui nous sont confiés doivent être munis de leur carnet de vaccination à jour.
+																	Il est nécessaire de réserver.</p>
+				</div>
+				<div id="column-one-third">
+					<h5>Parrainages :</h5>
+					<p>Si vous ne pouvez adopter un de nos protégés, vous avez la possibilité de devenir parrain ou marraine de l’un d’eux. Votre petite aide mensuelle (8 euros) nous aidera à prendre soin de lui.
+																	Vous recevrez sa photo et de ses nouvelles, et vous pouvez lui rendre visite aussi souvent que vous le voulez. (Voir modalités
+						<span>
+							<a href="{{ path("donate") }}">ICI</a>
+						</span>).</p>
+				</div>
+				<div id="column-one-fourth">
+					<h5>Opérations Caddies :</h5>
+					<p>Si vous découvrez notre stand « SPA de Saintes » devant votre Grande Surface, pensez à y déposer quelques aliments : croquettes ou boîtes chiens chats, riz, pâtes, gâteries.
+																	Chacun de vos cadeaux sera bienvenu.</p>
+				</div>
+
+				<div id="column-one-fifth">
+					<h5>Nourriture des animaux :</h5>
+					<p>Plus de 100 000 repas sont servis chaque année aux chiens et aux chats du Refuge.
+																	Ce sont soit des croquettes, soit des préparations à base de cuissons : riz, viandes, légumes.</p>
+				</div>
+
+				<div id="column-one-sixth">
+					<h5>Reçu fiscal :</h5>
+					<p>Pour chaque don fait à notre S.P.A.  un reçu fiscal vous permettra de déduire de votre revenu imposable 66% de la somme versée.</p>
+				</div>
+				<div id="column-one-seventh">
+					<h5>Surveillance vétérinaire :</h5>
+					<p>Un vétérinaire vient au Refuge une fois par semaine :
+												il examine les nouveaux arrivants, définit l’âge de ces animaux. Il établit un diagnostic en cas d’une pathologie et prescrit un protocole de soins.
+												Il vaccine tous les entrants, et procède au tatouage électronique.
+												Dans les cas d’urgence, en dehors de la visite du vétérinaire, l’animal est transféré en clinique.</p>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<div id="column-two-first">
+					<h5>Combien coûte une adoption ?
+					</h5>
+					<p>Le prix d'un chien qui part. à l’adoption est variable car établi en fonction de plusieurs critères. Le chien est accompagné de son carnet vétérinaire, faisant preuve de ses vaccinations ;
+																	Il est identifié par une puce électronique ou par un tatouage dermique.
+																	Pour un chat, l’adoption est également d'un prix variable. L’animal est vacciné et identifié. De plus il est muni d’un certificat de test négatif à la leucose. Si c’est un mâle, le chat est castré.
+																	Chaque animal qui part à l’adoption est accompagné d’un contrat d’essai de 15 jours. L’adoption sera définitive lorsqu’elle sera confirmée. Cette mesure permet à l’adoptant d’être tout à fait sûr de son choix. Dans le cas contraire, nous reprenons sans autre formalité l’animal.</p><br></div>
+				<div id="column-two-second">
+					<h5>Notre refuge joue le rôle de fourrière :
+					</h5>
+					<p>Les communes selon la loi devraient disposer chacune d’une fourrière individuelle pour accueillir les animaux trouvés. Ceux ci doivent être gardés pendant un délai légal de huit jours.
+																	360 Communes du département ont fait le choix de confier ce rôle de fourrière à notre S.P.A., selon des conventions annuelles. Dans nos structures, les animaux trouvés doivent être gardés pendant le délai légal, au cours duquel il sera effectué une recherche des propriétaires.
+																	S’ils ne sont pas réclamés, les animaux deviennent la propriété de notre S.P.A. et peuvent être proposés à l’adoption, après identification.
+																	Si vous trouvez un chien ou un chat errant, signalez-le à votre Mairie, ou directement à notre S.P.A.</p>
+				</div>
+				<div id="column-two-third">
+					<h5>Police Municipale :</h5>
+					<p>La Police Municipale de Saintes ainsi que celle d’une dizaine de communes, est chargée de capturer les animaux errants et de les conduire à notre Refuge .
+												Pour les autres communes du Département, nous allons sur demande des élus chercher l’animal sur place pour le rapatrier au Bois Rulaud .</p>
+				</div>
+				<div id="column-two-fourth">
+					<h5>Legs en faveur de notre SPA :</h5>
+					<p>Notre S.P.A. est Reconnue d’Utilité Publique.
+												Cette reconnaissance permet notamment à notre Association de percevoir des donations et des legs et d’être exonérée de tout droit de succession.
+												L’intégralité des legs sera utilisée pour améliorer le sort des animaux que nous prenons en charge.
+												Si vous avez la générosité de prévoir un legs en faveur de notre Refuge, il est toujours plus raisonnable de le faire chez votre notaire, en précisant bien que votre libéralité sera destinée à la S.P.A. de Saintes. Ainsi, vous aurez la certitude de nous aider à poursuive notre action.
+												Attention :
+												La S.P.A. de Saintes est une association indépendante. 251 S.P.A. comme la notre, sont regroupées au sein de la « Confédération  Les SPA de France » dont le siège est à Lyon. Toutes ces S.P.A. n’ont aucun lien avec la S.P.A. de Paris.
+						<br>
+
+						Adresse internet :
+						<a href="https://www.lesspadefrance.org/">Lesspadefrance.org</a>
+					</p>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div>
-		<h4></h4>
-	</div>
-	<div class="container">
-		<div class="row mb-5 ">
-		<div class="col-sm-5 text-center localization">
-			<iframe class="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11141.907384743867!2d-0.6899307569412884!3d45.72153109631565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480102ca79ec5a17%3A0xb8c0c1f3df61905c!2sSoci%C3%A9t%C3%A9%20Protectrice%20des%20Animaux%20SPA!5e0!3m2!1sfr!2sfr!4v1627029929029!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-			</div>
-			<div class="col-sm-7">
-			<h5>Combien coûte une adoption ? </h5>
-<p>Le prix d'un chien qui part. à l’adoption est variable car établi en fonction de plusieurs critères. Le chien est accompagné de son carnet vétérinaire, faisant preuve de ses vaccinations..</p>
-<p>Pour un chat, l’adoption est également d'un prix variable. L’animal est vacciné et identifié. De plus il est muni d’un certificat de test négatif à la leucose. Si c’est un mâle, le chat est castré.</p><br>
-<h5>Notre refuge joue le rôle de fourrière : </h5>	
-<p>Les communes selon la loi devraient disposer chacune d’une fourrière individuelle pour accueillir les animaux trouvés. Ceux ci doivent être gardés pendant un délai légal de huit jours.
-360 Communes du département ont fait le choix de confier ce rôle de fourrière à notre S.P.A., selon des conventions annuelles. Dans nos structures, les animaux trouvés doivent être gardés pendant le délai légal, au cours duquel il sera effectué une recherche des propriétaires.
-S’ils ne sont pas réclamés, les animaux deviennent la propriété de notre S.P.A. et peuvent être proposés à l’adoption, après identification.
-Si vous trouvez un chien ou un chat errant, signalez-le à votre Mairie, ou directement à notre S.P.A.</p>		
 </div>
+{# <div class="trait-home-don"></div> #}
+<h4 class="text-center p-2">QUELQUES SITES QUI POURRAIENT VOUS INTERESSER
+</h4>
+<div class="container-fluid mt-3 mb-5">
+	<div class="row">
+		<div class="col m-auto text-center">
+			<a href="https://www.lefigaro.fr/sciences/2013/10/21/01008-20131021ARTFIG00486-comment-les-chats-voient-le-monde.php"><img class="w-75" src="{{ asset('build/images/figaro-logo.jpg') }}" alt=""></a>
+		</div>
+		<div class="col m-auto text-center">
+			<a href="https://www.dogstory.net/Vision%20canine.htm"><img class="w-75" src="{{ asset('build/images/dogstory.png') }}" alt=""></a>
+		</div>
+		<div class="col m-auto text-center">
+			<a href="https://www.fondationbrigittebardot.fr/"><img class="w-75" src="{{ asset('build/images/fbb.jpg') }}" alt=""></a>
+		</div>
+		<div class="col m-auto text-center">
+			<a href="https://spa-de-cognac.jimdofree.com/"><img class="w-75" src="{{ asset('build/images/spacgc.png') }}" alt=""></a>
+		</div>
+		<div class="col m-auto text-center">
+			<a href="https://www.laconfederation.fr/"><img class="w-75" src="{{ asset('build/images/LogoAssocAdher.jpg') }}" alt=""></a>
+		</div>
+		<div class="col m-auto text-center">
+			<a href="https://www.30millionsdamis.fr/"><img class="w-75" src="{{ asset('build/images/millions-damis.jpg') }}" alt=""></a>
+		</div>
+		<div class="col m-auto text-center">
+			<a href="https://www.l214.com/"><img class="w-75" src="{{ asset('build/images/logo-L214.jpg') }}" alt=""></a>
 		</div>
 	</div>
-{% endblock %}
+</div>{% endblock %}
