@@ -23,7 +23,7 @@ security:
             anonymous: false
             lazy: true
             provider: app_user_provider
-            # form_login: 
+            # form_login:
             #     login_path: app_login
                 # check_path: app_login
             # guard:
@@ -31,7 +31,7 @@ security:
             #         - App\Security\LoginFormAuthenticator
             #     authenticators:
             #         - App\Security\FacebookAuthenticator
-            custom_authenticators: 
+            custom_authenticators:
                 - App\Security\LoginFormAuthenticator
             #     - App\Security\FacebookAuthenticator
 
@@ -39,7 +39,7 @@ security:
                 path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
-            
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
@@ -50,9 +50,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/message/index, roles: ROLE_ADMIN }
-
-
-        # - { path: ^/register, roles: ROLE_ADMIN }
+        # - { path: ^/register, roles: ROLE_SUPER_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
     enable_authenticator_manager: true
