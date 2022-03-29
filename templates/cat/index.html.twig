@@ -19,6 +19,7 @@
 					<img src="{{ asset('build/images/la-chatterie-1.png') }}" class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block"></div>
 				</div>
+
 				<div class="carousel-item">
 					<img src="{{ asset('build/images/la-chatterie-2.png') }}" class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block"></div>
@@ -53,7 +54,7 @@ Si vous avez la générosité de prévoir un legs en faveur de notre Refuge, il 
 		<div class="container">
 			<div class="row d-flex all-cat h-50 mb-5">
 				<div class="img-chats col-sm-5 h-50">
-					 <img class="w-100" src="{{ vich_uploader_asset(cat) }}" alt=""> 
+					 <img class="w-100" src="{{ vich_uploader_asset(cat) }}" alt="">
 				</div>
 				<div class="text-chats col-sm-7 h-50">
 					<p>{{ cat.description }}</p><br>
@@ -69,7 +70,7 @@ Si vous avez la générosité de prévoir un legs en faveur de notre Refuge, il 
 							</li>
 						</ul>
 						<ul class="infos-public-cat w-50" style="list-style:none">
-							
+
 							<li class="p-1">Vacciné(e) :
 							{% if cat.vaccinate == 1 %}
 								Oui
@@ -114,5 +115,5 @@ Si vous avez la générosité de prévoir un legs en faveur de notre Refuge, il 
 			</div>
 			</div>
 		{% endfor %}
-		
+
 {% endblock %}

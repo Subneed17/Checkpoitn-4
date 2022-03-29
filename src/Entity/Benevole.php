@@ -31,7 +31,7 @@ class Benevole
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
 
@@ -81,7 +81,7 @@ class Benevole
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
 
@@ -104,7 +104,7 @@ class Benevole
      * Get the value of BenevoleFile
      *
      * @return  File
-     */ 
+     */
     public function getBenevoleFile()
     {
         return $this->benevoleFile;
@@ -116,7 +116,7 @@ class Benevole
      * @param  File  $benevoleFile
      *
      * @return  self
-     */ 
+     */
     public function setBenevoleFile(File $benevoleFile)
     {
         $this->benevoleFile = $benevoleFile;

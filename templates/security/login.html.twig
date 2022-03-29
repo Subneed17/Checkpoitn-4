@@ -40,11 +40,11 @@
 					</button>
 					{# <a href="{{ path('connect_facebook_start') }}">Facebook</a> #}
 				</div>
-				{# <a href="{{ path('app_forgot_password_request') }}"<p>Vous avez oublié votre mot de passe ?</p></a> #}
+				 <a href="{{ path('app_forgot_password_request') }}"<p>Vous avez oublié votre mot de passe ?</p></a>
 				<br>
 				{% if is_granted('ROLE_ADMIN') %}
 			<p>Vous n'avez pas encore de compte ? Inscrivez-vous dès maintenant en cliquant <a href="{{ path("app_register") }}" > ici</a> !</p>
-			{% endif %}	
+			{% endif %}
 			</div>
 		</div>
 	</form>
